@@ -1,6 +1,7 @@
 package view;
+import java.awt.Dimension;
+import java.awt.FlowLayout;
 import java.awt.Font;
-import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
@@ -30,6 +31,10 @@ public class KomPanel extends JPanel implements Observer {
 	private Korisnik ulogovaniKorisnik;
 	private JButton dodajKomentarDugme;
 	private JPanel panel;
+
+
+
+	private JLabel nemaKomentaraLabela;
 	
 	
 	private void pokreniDodajKomentarDialog(){
@@ -39,9 +44,10 @@ public class KomPanel extends JPanel implements Observer {
 	
 	
 	KomPanel(ArrayList<Komentar> komentari2,Korisnik ulogovaniKorisnik){
-		this.komentari = new Komentari(komentari2);
+		this.komentari = new Komentari(komentari2,ulogovaniKorisnik);
 		this.komentari.addObserver(this);
 		this.ulogovaniKorisnik = ulogovaniKorisnik;
+		nemaKomentaraLabela = new JLabel("Nema komentara!");
 		
 		BoxLayout komform = new BoxLayout(this,BoxLayout.Y_AXIS);
 		this.setLayout(komform);
@@ -50,18 +56,20 @@ public class KomPanel extends JPanel implements Observer {
 		
 		if(this.ulogovaniKorisnik !=null){
 			this.dodajKomentarDugme = new JButton("Dodaj komentar");
-			GridLayout pomocniGornji = new GridLayout(1,2);
+			FlowLayout pomocniGornji = new FlowLayout(FlowLayout.LEFT,20,0);
 			JPanel pomocniGornjiPanel = new JPanel();
 			pomocniGornjiPanel.setLayout(pomocniGornji);
 			pomocniGornjiPanel.add(komLabela);
 			pomocniGornjiPanel.add(this.dodajKomentarDugme);
 			this.add(pomocniGornjiPanel);
 			
+			
 			this.dodajKomentarDugme.addActionListener(new ActionListener() { 
 			    public void actionPerformed(ActionEvent e) { 
 			       pokreniDodajKomentarDialog();
 			    }
 			});
+			
 		}
 		else{
 			this.add(komLabela);
@@ -71,15 +79,19 @@ public class KomPanel extends JPanel implements Observer {
 		BoxLayout form = new BoxLayout(panel,BoxLayout.Y_AXIS);
 		panel.setLayout(form);
 		JScrollPane jscroll = new JScrollPane(panel);
-		if(this.komentari.komentari.size()==0){
-			panel.add(new JLabel("Nema komentara!"));
+		if(this.komentari.komentari.size()==0 ||this.komentari.komentari == null){
+			panel.add(nemaKomentaraLabela);
 		}
 		else{
 			for(Komentar kom:this.komentari.komentari){
 				panel.add(new KomentarIzgled(kom));
 			}
-			this.add(jscroll);
+			
 	}
+		jscroll.setMinimumSize(new Dimension(this.getWidth()/2,this.getHeight()/4));
+		this.add(jscroll);
+		
+		
 		
 	}
 
@@ -88,7 +100,7 @@ public class KomPanel extends JPanel implements Observer {
 	public void update(Observable arg0, Object arg1){
 		ArrayList<Komentar> lista = ((Komentari)arg0).komentari;
 		Komentar poslednji = lista.get(lista.size()-1);
-		
+		panel.remove(nemaKomentaraLabela);
 		panel.add(new KomentarIzgled(poslednji));
 		panel.revalidate();
 		panel.repaint();

@@ -26,7 +26,12 @@ public abstract class Korisnik {
 		this.rezervacije = rezervacije;
 	}
 	//TO DO
-	public void  rezervisiTuru(){};
+	public void  rezervisiTuru(Termin t){
+		Rezervacija r = new Rezervacija(false, t, this, false);
+		t.getRezervacije().add(r);
+		t.setBrojSlobodnihMesta(t.getBrojSlobodnihMesta()-1);
+		this.getRezervacije().add(r);
+	};
 	public void otkaziTuru(){};
 	public void oceniTuru(){}
 	public String getKorIme() {
