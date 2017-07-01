@@ -1,0 +1,33 @@
+[ {
+  "korIme" : "Marko90",
+  "lozinka" : "marko",
+  "ime" : "Marko",
+  "prezime" : "Markovic",
+  "telefon" : "064241232",
+  "komentari" : [ ],
+  "rezervacije" : [ ]
+}, {
+  "korIme" : "Mladen75",
+  "lozinka" : "mladen",
+  "ime" : "Mladen",
+  "prezime" : "Mladenovic",
+  "telefon" : "065227877",
+  "komentari" : [ ],
+  "rezervacije" : [ ]
+}, {
+  "korIme" : "Branko",
+  "lozinka" : "branko",
+  "ime" : "Branko",
+  "prezime" : "Brankovic",
+  "telefon" : "065123345",
+  "komentari" : [ ],
+  "rezervacije" : [ ]
+}, {
+  "korIme" : "Jovana",
+  "lozinka" : "jovana",
+  "ime" : "Jovana",
+  "prezime" : "Jovanovic",
+  "telefon" : "065333444",
+  "komentari" : [ ],
+  "rezervacije" : [ ]
+} ]

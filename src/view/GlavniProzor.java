@@ -26,7 +26,8 @@ import model.Tura;
 public class GlavniProzor extends JFrame {
 
 	private static final long serialVersionUID = 1L;
-
+	
+	
 	public GlavniProzor() {
 
 		setSize(800, 600);
@@ -64,6 +65,7 @@ public class GlavniProzor extends JFrame {
 			public void actionPerformed(ActionEvent arg0) {
 				// onaj ko bude radio logovanje nek doda poziv za prikaz prozora
 				// za logovanje
+				new ProzorZaLogovanje(Aplikacija.korisnici);
 			}
 		});
 
@@ -72,6 +74,7 @@ public class GlavniProzor extends JFrame {
 		reg.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
 				// isto za registrovanje
+				new ProzorZaRegistraciju(Aplikacija.korisnici);
 			}
 		});
 
@@ -139,6 +142,8 @@ public class GlavniProzor extends JFrame {
 				
 			}
 		});
+		
+		
 
 	}
 

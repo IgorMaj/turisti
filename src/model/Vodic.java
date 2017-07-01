@@ -12,7 +12,9 @@ public class Vodic extends Korisnik {
 
 	ArrayList <Tura> ture;
 	
-	
+	public Vodic(){
+		
+	}
 	
 	
 	public Vodic(String korIme, String lozinka, String ime, String prezime, String telefon,

@@ -5,13 +5,11 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
-import java.awt.HeadlessException;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -22,7 +20,13 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.Aplikacija;
+import model.Komentar;
 import model.Korisnik;
+import model.Rezervacija;
+import model.Tura;
+import model.Turista;
+import model.Vodic;
 
 public class ProzorZaRegistraciju extends JDialog {
 	JLabel text;
@@ -171,11 +175,28 @@ public class ProzorZaRegistraciju extends JDialog {
 				
 				if (text_name.getText().trim().equals("")|| text_surname.getText().trim().equals("") || text_phone_number.getText().trim().equals("") || user.getText().trim().equals("") || pass.getText().trim().equals("")){
 					JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Sva polja moraju biti popunjena!!!");
+					return;
 				}
 				
-			
-	
-				
+				if (Aplikacija.korisnikVecPostoji(user.getText().trim())){
+					JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Korisnicko ime koje ste unijeli je vec zauzeto!!!");
+					return;
+				}else{
+					Korisnik k;
+					if (tip.equals("turista")){
+						k = new Turista(user.getText().trim(),pass.getText().trim(),text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
+					}else{
+						k = new Vodic(user.getText().trim(),pass.getText().trim(),text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),new ArrayList<Komentar>(),new ArrayList<Rezervacija>(),new ArrayList<Tura>());
+					}
+					
+					try {
+						Aplikacija.dodajKorisnika(k);
+					} catch (IOException e1) {
+					
+						e1.printStackTrace();
+					}
+					JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Uspjesno ste se registrovali :)");
+				}	
 			}
 		});
 		

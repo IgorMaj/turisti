@@ -19,6 +19,7 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;
 
+import controller.Aplikacija;
 import model.Korisnik;;
 
 public class ProzorZaLogovanje extends JDialog{
@@ -34,7 +35,7 @@ public class ProzorZaLogovanje extends JDialog{
 	public ProzorZaLogovanje(ArrayList<Korisnik> k){
 		super();
 		korisnici = k;
-		setSize(200,200);
+		setSize(235,200);
 		setTitle("PRIJAVA");
 		
 		JPanel p = new JPanel(new GridBagLayout());
@@ -42,7 +43,7 @@ public class ProzorZaLogovanje extends JDialog{
 		cs.fill = GridBagConstraints.HORIZONTAL;
 		
 		
-		l_korisnicko_ime = new JLabel("Username");
+		l_korisnicko_ime = new JLabel("Korisnicko ime");
 		cs.gridx = 0;
 	    cs.gridy = 0;
 	    cs.gridwidth = 1;
@@ -54,7 +55,7 @@ public class ProzorZaLogovanje extends JDialog{
 	    cs.gridwidth = 2;
 	    p.add(polje_korisnicko_ime,cs);
 	    
-	    l_lozinka = new JLabel("Password");
+	    l_lozinka = new JLabel("Lozinka");
 	    cs.gridx = 0;
 	    cs.gridy = 1;
 	    cs.gridwidth = 1;
@@ -92,18 +93,26 @@ public class ProzorZaLogovanje extends JDialog{
 		ok.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				/*try {
-					if (Korisnik.provjera_korisnika(getUsername(), getPassword())){
+				try {
+					
+					if (getUsername().trim().equals("") || getPassword().trim().equals("")){
+						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Sva polja se moraju popuniti!!!");
+						return;
+					}
+					
+					
+					if (Aplikacija.provjeraKorisnika(getUsername(), getPassword())){
 						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Uspjesno logovanje :)");
+						
 					}else{
 						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Kombinacija unijetog korisnickog imena i sifre ne postoji!!!");
 						polje_korisnicko_ime.setText("");
 						polje_lozinka.setText("");
 					}
-				} catch (HeadlessException | IOException e1) {
+				} catch (HeadlessException e1) {
 				
 					e1.printStackTrace();
-				}*/
+				}
 				
 			}
 

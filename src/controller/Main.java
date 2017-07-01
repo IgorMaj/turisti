@@ -51,6 +51,7 @@ public class Main {
 		*/
 		
 		Aplikacija.ucitavanjeTura();
+		Aplikacija.ucitajKorisnike();
 		GlavniProzor gp=new GlavniProzor();
 		gp.setVisible(true);
 

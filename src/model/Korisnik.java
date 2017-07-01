@@ -14,6 +14,10 @@ public abstract class Korisnik {
 	private ArrayList <Rezervacija> rezervacije;
 	
 	
+	public Korisnik(){
+		
+	}
+	
 	public Korisnik(String korIme, String lozinka, String ime, String prezime, String telefon,
 			ArrayList<Komentar> komentari, ArrayList<Rezervacija> rezervacije) {
 		super();

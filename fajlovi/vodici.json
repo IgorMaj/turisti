@@ -1,0 +1,46 @@
+[ {
+  "korIme" : "Milan123",
+  "lozinka" : "milan",
+  "ime" : "Milan",
+  "prezime" : "Milanovic",
+  "telefon" : "065555333",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
+}, {
+  "korIme" : "Janko135",
+  "lozinka" : "janko",
+  "ime" : "Janko",
+  "prezime" : "Jankovic",
+  "telefon" : "064555333",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
+}, {
+  "korIme" : "Nikola90",
+  "lozinka" : "nikola",
+  "ime" : "Nikola",
+  "prezime" : "Nikolic",
+  "telefon" : "064123445",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
+}, {
+  "korIme" : "Petar",
+  "lozinka" : "pera",
+  "ime" : "Petar",
+  "prezime" : "Petrovic",
+  "telefon" : "062345128",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
+}, {
+  "korIme" : "Mladen",
+  "lozinka" : "asf",
+  "ime" : "safsaf",
+  "prezime" : "fs",
+  "telefon" : "asf",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
+} ]
