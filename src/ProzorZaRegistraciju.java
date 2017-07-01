@@ -22,7 +22,7 @@ import javax.swing.JTextField;
 
 import org.omg.CORBA.TRANSACTION_MODE;
 
-public class RegistrationWindow extends JDialog {
+public class ProzorZaRegistraciju extends JDialog {
 	JLabel text;
 	JLabel name;
 	JLabel surname;
@@ -42,9 +42,9 @@ public class RegistrationWindow extends JDialog {
 	
 	ArrayList<Korisnik> korisnici;
 	
-	public RegistrationWindow(ArrayList<Korisnik> k){
+	public ProzorZaRegistraciju(ArrayList<Korisnik> k){
 		super();
-		k = korisnici;
+		korisnici = k;
 		setSize(395,380);
 		setTitle("REGISTRACIJA");
 		
@@ -168,12 +168,12 @@ public class RegistrationWindow extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				
 				if (text_name.getText().trim().equals("")|| text_surname.getText().trim().equals("") || text_phone_number.getText().trim().equals("") || user.getText().trim().equals("") || pass.getText().trim().equals("")){
-					JOptionPane.showMessageDialog(RegistrationWindow.this, "Sva polja moraju biti popunjena!!!");
+					JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Sva polja moraju biti popunjena!!!");
 				}
 				
 				try {
 					if (Korisnik.korisnik_vec_postoji(user.getText().trim())){
-						JOptionPane.showMessageDialog(RegistrationWindow.this,"Korisnicko ime koje ste unijeli vec postoji!!!");
+						JOptionPane.showMessageDialog(ProzorZaRegistraciju.this,"Korisnicko ime koje ste unijeli vec postoji!!!");
 						user.setText("");
 						pass.setText("");
 					}else{
@@ -187,7 +187,7 @@ public class RegistrationWindow extends JDialog {
 						//Korisnik.ucitaj_korisnike(korisnici);
 						//korisnici.put(k.getKorisnicko_ime(), k);
 						Korisnik.snimi_korisnike_u_fajl(korisnici);
-						JOptionPane.showMessageDialog(RegistrationWindow.this, "Cestitamo, upravo ste napravili svoj nalog :)");
+						JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Cestitamo, upravo ste napravili svoj nalog :)");
 					}
 				} catch (HeadlessException | IOException e1) {
 					// TODO Auto-generated catch block
@@ -221,7 +221,7 @@ public class RegistrationWindow extends JDialog {
 	
 
 	public static void main(String[] args) {
-		//new RegistrationWindow();
+		new ProzorZaRegistraciju(new ArrayList<Korisnik>());
 
 	}
 

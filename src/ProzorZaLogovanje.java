@@ -17,17 +17,17 @@ import javax.swing.JPanel;
 import javax.swing.JPasswordField;
 import javax.swing.JTextField;;
 
-public class LoginWindow extends JDialog{
-	JLabel username;
-	JLabel password;
-	JTextField user;
-	JPasswordField pass;
+public class ProzorZaLogovanje extends JDialog{
+	JLabel l_korisnicko_ime;
+	JLabel l_lozinka;
+	JTextField polje_korisnicko_ime;
+	JPasswordField polje_lozinka;
 	JButton ok;
 	JButton cancel;
 	
 	ArrayList<Korisnik> korisnici;
 	
-	public LoginWindow(ArrayList<Korisnik> k){
+	public ProzorZaLogovanje(ArrayList<Korisnik> k){
 		super();
 		korisnici = k;
 		setSize(200,200);
@@ -38,29 +38,29 @@ public class LoginWindow extends JDialog{
 		cs.fill = GridBagConstraints.HORIZONTAL;
 		
 		
-		username = new JLabel("Username");
+		l_korisnicko_ime = new JLabel("Username");
 		cs.gridx = 0;
 	    cs.gridy = 0;
 	    cs.gridwidth = 1;
-	    p.add(username,cs);
+	    p.add(l_korisnicko_ime,cs);
 		
-	    user = new JTextField(11);
+	    polje_korisnicko_ime = new JTextField(11);
 	    cs.gridx = 1;
 	    cs.gridy = 0;
 	    cs.gridwidth = 2;
-	    p.add(user,cs);
+	    p.add(polje_korisnicko_ime,cs);
 	    
-	    password = new JLabel("Password");
+	    l_lozinka = new JLabel("Password");
 	    cs.gridx = 0;
 	    cs.gridy = 1;
 	    cs.gridwidth = 1;
-	    p.add(password,cs);
+	    p.add(l_lozinka,cs);
 	    
-	    pass = new JPasswordField(11);
+	    polje_lozinka = new JPasswordField(11);
 	    cs.gridx = 1;
 	    cs.gridy = 1;
 	    cs.gridwidth = 2;
-	    p.add(pass,cs);
+	    p.add(polje_lozinka,cs);
 	    
 	    this.add(p);
 
@@ -90,14 +90,14 @@ public class LoginWindow extends JDialog{
 			public void actionPerformed(ActionEvent e) {
 				try {
 					if (Korisnik.provjera_korisnika(getUsername(), getPassword())){
-						JOptionPane.showMessageDialog(LoginWindow.this, "Uspjesno logovanje :)");
+						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Uspjesno logovanje :)");
 					}else{
-						JOptionPane.showMessageDialog(LoginWindow.this, "Kombinacija unijetog korisnickog imena i sifre ne postoji!!!");
-						user.setText("");
-						pass.setText("");
+						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Kombinacija unijetog korisnickog imena i sifre ne postoji!!!");
+						polje_korisnicko_ime.setText("");
+						polje_lozinka.setText("");
 					}
 				} catch (HeadlessException | IOException e1) {
-					// TODO Auto-generated catch block
+				
 					e1.printStackTrace();
 				}
 				
@@ -127,17 +127,18 @@ public class LoginWindow extends JDialog{
 	
 	
 	public String getUsername() {
-        return user.getText().trim();
+        return polje_korisnicko_ime.getText().trim();
     }
  
     public String getPassword() {
-        return new String(pass.getPassword());
+        return new String(polje_lozinka.getPassword());
     }
 	
 	
 	public static void main(String[] args) {
-		//new LoginWindow();
+		new ProzorZaLogovanje(new ArrayList<Korisnik>());
 
 	}
+
 
 }
