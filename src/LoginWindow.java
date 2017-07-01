@@ -7,6 +7,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -24,8 +25,11 @@ public class LoginWindow extends JDialog{
 	JButton ok;
 	JButton cancel;
 	
-	public LoginWindow(){
+	ArrayList<Korisnik> korisnici;
+	
+	public LoginWindow(ArrayList<Korisnik> k){
 		super();
+		korisnici = k;
 		setSize(200,200);
 		setTitle("PRIJAVA");
 		
@@ -132,7 +136,7 @@ public class LoginWindow extends JDialog{
 	
 	
 	public static void main(String[] args) {
-		new LoginWindow();
+		//new LoginWindow();
 
 	}
 

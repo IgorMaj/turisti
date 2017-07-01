@@ -1,3 +1,4 @@
+import java.util.ArrayList;
 
 public class Turista extends Korisnik {
 	
@@ -5,8 +6,8 @@ public class Turista extends Korisnik {
 		
 	}
 	
-	public Turista(String ime,String prezime,String telefon,String korisnicko_ime, String lozinka){
-		super(ime,prezime,telefon,korisnicko_ime,lozinka);
+	public Turista(String ime, String prezime, String telefon, String korisnicko_ime, String lozinka,ArrayList<Komentar> korisnici, ArrayList<Rezervacija> rezervacije){
+		super(ime,prezime,telefon,korisnicko_ime,lozinka,korisnici,rezervacije);
 	}
 	
 }

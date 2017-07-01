@@ -8,6 +8,7 @@ import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.HashMap;
 
 import javax.swing.JButton;
@@ -39,8 +40,11 @@ public class RegistrationWindow extends JDialog {
 	JButton potvrda;
 	JButton odustanak;
 	
-	public RegistrationWindow(){
+	ArrayList<Korisnik> korisnici;
+	
+	public RegistrationWindow(ArrayList<Korisnik> k){
 		super();
+		k = korisnici;
 		setSize(395,380);
 		setTitle("REGISTRACIJA");
 		
@@ -174,14 +178,14 @@ public class RegistrationWindow extends JDialog {
 						pass.setText("");
 					}else{
 						Korisnik k;
-						if (tip.getSelectedItem().equals("vodic")){
+						/*if (tip.getSelectedItem().equals("vodic")){
 							k = new Vodic(text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),user.getText().trim(),pass.getText().trim());
 						}else{
 							k = new Turista(text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),user.getText().trim(),pass.getText().trim());
-						}
+						}*/
 						HashMap<String, Korisnik> korisnici = new HashMap<String,Korisnik>();
-						Korisnik.ucitaj_korisnike(korisnici);
-						korisnici.put(k.getKorisnicko_ime(), k);
+						//Korisnik.ucitaj_korisnike(korisnici);
+						//korisnici.put(k.getKorisnicko_ime(), k);
 						Korisnik.snimi_korisnike_u_fajl(korisnici);
 						JOptionPane.showMessageDialog(RegistrationWindow.this, "Cestitamo, upravo ste napravili svoj nalog :)");
 					}
@@ -217,7 +221,7 @@ public class RegistrationWindow extends JDialog {
 	
 
 	public static void main(String[] args) {
-		new RegistrationWindow();
+		//new RegistrationWindow();
 
 	}
 
