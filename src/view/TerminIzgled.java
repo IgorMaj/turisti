@@ -39,7 +39,7 @@ public class TerminIzgled extends JPanel {
 		JLabel terminLabela = new JLabel("Termini");
 		terminLabela.setFont(new Font("Serif", Font.BOLD, 24));
 		odaberiTerminDugme = new JButton("Odaberi termin");
-		TabelaIzgled tabela = new TabelaIzgled(this.termini);
+		TabelaTerminaIzgled tabela = new TabelaTerminaIzgled(this.termini);
 		
 		odaberiTerminDugme.addActionListener(new ActionListener(){
 		

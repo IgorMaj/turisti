@@ -9,7 +9,7 @@ import javax.swing.table.DefaultTableModel;
 
 import model.Termin;
 
-public class TabelaIzgled extends JTable {
+public class TabelaTerminaIzgled extends JTable {
 
 	/**
 	 * 
@@ -21,7 +21,7 @@ public class TabelaIzgled extends JTable {
 	
 	
 	
-	TabelaIzgled(ArrayList<Termin> termini){
+	TabelaTerminaIzgled(ArrayList<Termin> termini){
 		super();
 		this.termini = termini;
 		zaglavlje = new Vector<String>();

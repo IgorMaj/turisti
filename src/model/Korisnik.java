@@ -32,7 +32,13 @@ public abstract class Korisnik {
 		t.setBrojSlobodnihMesta(t.getBrojSlobodnihMesta()-1);
 		this.getRezervacije().add(r);
 	};
-	public void otkaziTuru(){};
+	public void otkaziTuru(int indexTure){
+		Rezervacija r = rezervacije.get(indexTure);
+		r.getTermin().setBrojSlobodnihMesta(r.getTermin().getBrojSlobodnihMesta()+1);
+		r.getTermin().getRezervacije().remove(r);
+		rezervacije.remove(indexTure);
+		
+	};
 	public void oceniTuru(){}
 	public String getKorIme() {
 		return korIme;

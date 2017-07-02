@@ -55,6 +55,10 @@ public class Main {
 		Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 		GlavniProzor gp=new GlavniProzor();
 		gp.setVisible(true);
+		
+		//Za potrebe testiranja izbrisati komentar
+		//OtkazivanjeRezervacijaIzgled otkIzgled = new OtkazivanjeRezervacijaIzgled(Aplikacija.trenutnoAktivan);
+		//otkIzgled.setVisible(true);
 
 	}
 
