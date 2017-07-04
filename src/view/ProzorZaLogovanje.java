@@ -103,7 +103,7 @@ public class ProzorZaLogovanje extends JDialog{
 					
 					if (Aplikacija.provjeraKorisnika(getUsername(), getPassword())){
 						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Uspjesno logovanje :)");
-						
+						TuristaUlogovanProzor t = new TuristaUlogovanProzor(Aplikacija.trenutnoAktivan);
 					}else{
 						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Kombinacija unijetog korisnickog imena i sifre ne postoji!!!");
 						polje_korisnicko_ime.setText("");
@@ -111,6 +111,9 @@ public class ProzorZaLogovanje extends JDialog{
 					}
 				} catch (HeadlessException e1) {
 				
+					e1.printStackTrace();
+				} catch (IOException e1) {
+					// TODO Auto-generated catch block
 					e1.printStackTrace();
 				}
 				
