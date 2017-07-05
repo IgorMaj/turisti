@@ -29,12 +29,6 @@ public class Aplikacija {
 	public static ArrayList<Tura> ture = new ArrayList<Tura>();
 
 	
-	public Aplikacija(){
-		
-	}
-	
-	
-	// TO DO
 	public static void pretraziKorisnike() {};
 
 	public static void dodajKorisnika(Korisnik k) throws JsonGenerationException, JsonMappingException, IOException {
@@ -161,18 +155,29 @@ public class Aplikacija {
 
 		ArrayList<Tura> tur = new ArrayList<Tura>();
 		for (int i = 0; i < t.getVodici().size(); i++) {
-			for (int j = 0; j < korisnici.size(); i++) {
+			for (int j = 0; j < korisnici.size(); j++) {
 				if (korisnici.get(j) instanceof Vodic) {
 					String imePrezime = korisnici.get(j).getIme() + " " + korisnici.get(j).getPrezime();
 					if (imePrezime.equals(t.getVodici().get(i))) {
 						tur = ((Vodic) korisnici.get(j)).getTure();
-						tur.remove(t);
+						for (Tura tura : tur) {
+							if(tura.getIdTure().equals(t.getIdTure())){
+								tur.remove(tura);
+								break;
+							}
+						}
 						((Vodic) korisnici.get(j)).setTure(tur);
-
 					}
 				}
 			}
 		}
+		ArrayList<Vodic> vodici = new ArrayList<Vodic>();
+		for (Korisnik k : Aplikacija.korisnici) {
+			if(k instanceof Vodic){
+				vodici.add((Vodic)k);
+			}
+		}
+		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/vodici.json"), vodici);
 	};
 
 	// ucitavanje tura u kolekciju(ture) aplikacije
@@ -236,7 +241,7 @@ public class Aplikacija {
 		String imePrz = trenutnoAktivan.getIme() + " " + trenutnoAktivan.getPrezime();
 
 		for (int i = 0; i < ture.size(); i++) {
-			if (imePrz.equals(ture.get(i).getKreatortTure())) {
+			if (imePrz.equals(ture.get(i).getKreatorTure())) {
 				t.add(ture.get(i));
 			}
 		}

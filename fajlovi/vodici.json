@@ -15,7 +15,77 @@
   "telefon" : "064555333",
   "komentari" : [ ],
   "rezervacije" : [ ],
-  "ture" : [ ]
+  "ture" : [ {
+    "idTure" : "Kavos-nikad ne spava",
+    "opis" : "10 neispavanih noci",
+    "ocena" : 0,
+    "minBrojMesta" : 20,
+    "kreatorTure" : "Janko Jankovic",
+    "vodici" : [ "Janko Jankovic", "djoka djokic" ],
+    "termini" : [ {
+      "pocetakTure" : "30.6.2017",
+      "krajTure" : "10.7.2017",
+      "brojSlobodnihMesta" : 50,
+      "aktivan" : true,
+      "cena" : 200.0,
+      "rezervacije" : [ ]
+    }, {
+      "pocetakTure" : "15.7.2017",
+      "krajTure" : "25.7.2017",
+      "brojSlobodnihMesta" : 50,
+      "aktivan" : true,
+      "cena" : 250.0,
+      "rezervacije" : [ ]
+    } ],
+    "komentari" : [ ],
+    "gradovi" : [ {
+      "naziv" : "Kavos",
+      "ptt" : 5458
+    } ],
+    "destinacije" : [ {
+      "naziv" : "Srpska kuca",
+      "opis" : "muzej",
+      "mesto" : {
+        "naziv" : "Krf",
+        "ptt" : 5458
+      }
+    } ]
+  }, {
+    "idTure" : "Zlatibor-5 dana",
+    "opis" : "odmor u prirodi",
+    "ocena" : 7,
+    "minBrojMesta" : 20,
+    "kreatorTure" : "Janko Jankovic",
+    "vodici" : [ "Janko Jankovic" ],
+    "termini" : [ {
+      "pocetakTure" : "30.6.2017",
+      "krajTure" : "10.7.2017",
+      "brojSlobodnihMesta" : 50,
+      "aktivan" : true,
+      "cena" : 200.0,
+      "rezervacije" : [ ]
+    }, {
+      "pocetakTure" : "15.7.2017",
+      "krajTure" : "25.7.2017",
+      "brojSlobodnihMesta" : 50,
+      "aktivan" : true,
+      "cena" : 250.0,
+      "rezervacije" : [ ]
+    } ],
+    "komentari" : [ ],
+    "gradovi" : [ {
+      "naziv" : "Zlatibor",
+      "ptt" : 22240
+    } ],
+    "destinacije" : [ {
+      "naziv" : "Mokra Gora",
+      "opis" : "selo",
+      "mesto" : {
+        "naziv" : "Zlatibor",
+        "ptt" : 22240
+      }
+    } ]
+  } ]
 }, {
   "korIme" : "Nikola90",
   "lozinka" : "nikola",

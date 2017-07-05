@@ -37,11 +37,15 @@ public class TuristaUlogovanProzor extends JFrame {
 		
 		TabProfil tp = new TabProfil(ulogovani);
 		jtp.addTab("Profil", tp);
+		
+		
 		if(ulogovani instanceof Vodic){
-			KreiranjeTurePanel ktp = new KreiranjeTurePanel();
+			BrisanjeTuraPanel btp = new BrisanjeTuraPanel();
+			KreiranjeTurePanel ktp = new KreiranjeTurePanel(btp);
+			
 			jtp.addTab("Kreiraj turu", ktp);
+			jtp.addTab("Brisanje ture", btp);
 		}
-		/*Ovde dodavati nove tabove, praviti tabove kao JPanel klase*/
 		
 		bIzlogujSe.addActionListener(new ActionListener() {
 			@Override

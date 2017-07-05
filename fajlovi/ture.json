@@ -3,8 +3,8 @@
   "opis" : "10 neispavanih noci",
   "ocena" : 0,
   "minBrojMesta" : 20,
-  "kreatortTure" : "petar petrovic",
-  "vodici" : [ "petar petrovic", "djoka djokic" ],
+  "kreatorTure" : "Janko Jankovic",
+  "vodici" : [ "Janko Jankovic", "djoka djokic" ],
   "termini" : [ {
     "pocetakTure" : "30.6.2017",
     "krajTure" : "10.7.2017",
@@ -38,8 +38,8 @@
   "opis" : "odmor u prirodi",
   "ocena" : 7,
   "minBrojMesta" : 20,
-  "kreatortTure" : "djoka djokic",
-  "vodici" : [ "djoka djokic" ],
+  "kreatorTure" : "Janko Jankovic",
+  "vodici" : [ "Janko Jankovic" ],
   "termini" : [ {
     "pocetakTure" : "30.6.2017",
     "krajTure" : "10.7.2017",
