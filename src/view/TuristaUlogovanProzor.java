@@ -10,6 +10,7 @@ import javax.swing.JFrame;
 import javax.swing.JTabbedPane;
 import javax.swing.JToolBar;
 
+import controller.Aplikacija;
 import model.Korisnik;
 import model.Vodic;
 
@@ -46,7 +47,7 @@ public class TuristaUlogovanProzor extends JFrame {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				
+				Aplikacija.trenutnoAktivan = null;
 			}
 		});
 		
