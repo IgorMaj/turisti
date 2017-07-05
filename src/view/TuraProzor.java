@@ -3,20 +3,12 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
-import java.text.SimpleDateFormat;
-import java.util.Vector;
-
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JScrollPane;
-import javax.swing.JTable;
-
 import model.Korisnik;
-import model.Termin;
 import model.Tura;
-import model.Vodic;
 
 public class TuraProzor extends JFrame{
 
@@ -72,37 +64,11 @@ public class TuraProzor extends JFrame{
 	}
 	
 	private void podesiTermine(){
-		JPanel terminPanel = new JPanel();
-		BoxLayout komform = new BoxLayout(terminPanel,BoxLayout.Y_AXIS);
-		terminPanel.setLayout(komform);
-		JLabel terminLabela = new JLabel("Termini");
-		terminLabela.setFont(new Font("Serif", Font.BOLD, 24));
-		terminPanel.add(terminLabela);
-		Vector<String> zaglavlje = new Vector<String>();
-		Vector<Vector<String>> teloTabele = new Vector<Vector<String>>();
-		podesiTabelu(zaglavlje,teloTabele);
-		JTable tabela = new JTable(teloTabele,zaglavlje);
-		tabela.setDefaultEditor(Object.class,null);//da ne moze da se edituje
-		JScrollPane jscroll = new JScrollPane(tabela);
-		terminPanel.add(jscroll);
-		this.add(terminPanel);
+		TerminIzgled terminIzgled = new TerminIzgled(ulogovaniKorisnik,tura.getTermini());
+		this.add(terminIzgled);
 	}
 	
-	private void podesiTabelu(Vector<String> zaglavlje, Vector<Vector<String>> teloTabele) {
-		zaglavlje.addElement("Pocetak");
-		zaglavlje.addElement("Zavrsetak");
-		zaglavlje.addElement("Broj slobodnih mesta");
 	
-		Vector<String> trenutniRed;
-		for(Termin t:this.tura.getTermini()){
-			trenutniRed = new Vector<String>();
-			teloTabele.addElement(trenutniRed);
-			trenutniRed.addElement(t.getPocetakTure());
-			trenutniRed.addElement(t.getKrajTure());
-			trenutniRed.addElement(t.getBrojSlobodnihMesta()+"");
-		}
-		
-	}
 
 	public TuraProzor(Tura tura,Korisnik ulogovaniKorisnik){
 		this.tura = tura;

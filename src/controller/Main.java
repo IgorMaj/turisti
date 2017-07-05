@@ -1,12 +1,13 @@
 package controller;
-import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
-import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.Komentar;
+import model.Rezervacija;
+import model.Turista;
 import view.GlavniProzor;
 
 public class Main {
@@ -51,9 +52,17 @@ public class Main {
 		*/
 		
 		Aplikacija.ucitavanjeTura();
+<<<<<<< HEAD
 		Aplikacija.ucitajKorisnike();
+=======
+		Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
+>>>>>>> Igorova-grana2
 		GlavniProzor gp=new GlavniProzor();
 		gp.setVisible(true);
+		
+		//Za potrebe testiranja izbrisati komentar
+		//OtkazivanjeRezervacijaIzgled otkIzgled = new OtkazivanjeRezervacijaIzgled(Aplikacija.trenutnoAktivan);
+		//otkIzgled.setVisible(true);
 
 	}
 

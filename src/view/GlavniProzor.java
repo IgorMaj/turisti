@@ -136,7 +136,7 @@ public class GlavniProzor extends JFrame {
 			        JOptionPane.showMessageDialog(null, "Nije pronadjena ni jedna tura.", "Informacija: ", JOptionPane.INFORMATION_MESSAGE);
 				}else{
 					RezultatPretrageProzor rp = new RezultatPretrageProzor(ture, Aplikacija.trenutnoAktivan);
-					rp.show();
+					rp.setVisible(true);
 				}
 				
 				
