@@ -43,4 +43,13 @@
   "komentari" : [ ],
   "rezervacije" : [ ],
   "ture" : [ ]
+}, {
+  "korIme" : "Slaven96",
+  "lozinka" : "slaven",
+  "ime" : "Slaven",
+  "prezime" : "Garic",
+  "telefon" : "065444333",
+  "komentari" : [ ],
+  "rezervacije" : [ ],
+  "ture" : [ ]
 } ]

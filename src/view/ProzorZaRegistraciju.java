@@ -195,7 +195,8 @@ public class ProzorZaRegistraciju extends JDialog {
 					
 						e1.printStackTrace();
 					}
-					JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Uspjesno ste se registrovali :)");
+					//JOptionPane.showMessageDialog(ProzorZaRegistraciju.this, "Uspjesno ste se registrovali :)");
+					dispose();
 				}	
 			}
 		});
@@ -205,7 +206,7 @@ public class ProzorZaRegistraciju extends JDialog {
 		odustanak.addActionListener(new ActionListener() {	
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(1);
+				dispose();
 				
 			}
 		});
