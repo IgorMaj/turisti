@@ -124,7 +124,7 @@ public class TabProfil extends JPanel {
 		licniPodaciPanel.add(lKorisnickoImePrikaz, gbc);
 	
 		gbc.gridx = 4;
-		gbc.gridy = 10;
+		gbc.gridy = 8;
 		licniPodaciPanel.add(bIzmeniPodatke, gbc);
 	}
 }
