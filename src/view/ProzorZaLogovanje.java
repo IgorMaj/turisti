@@ -72,8 +72,8 @@ public class ProzorZaLogovanje extends JDialog{
 		setVisible(true);
 		setResizable(false);
 		
-		ok = new JButton("Ok");
-		cancel = new JButton("Cancel");
+		ok = new JButton("Potvrdi");
+		cancel = new JButton("Odustani");
 	    JPanel oc = new JPanel();
 	    oc.add(ok);
 	    oc.add(cancel);
@@ -102,8 +102,9 @@ public class ProzorZaLogovanje extends JDialog{
 					
 					
 					if (Aplikacija.provjeraKorisnika(getUsername(), getPassword())){
-						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Uspjesno logovanje :)");
+						//JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Uspjesno logovanje :)");
 						TuristaUlogovanProzor t = new TuristaUlogovanProzor(Aplikacija.trenutnoAktivan);
+						dispose();
 					}else{
 						JOptionPane.showMessageDialog(ProzorZaLogovanje.this, "Kombinacija unijetog korisnickog imena i sifre ne postoji!!!");
 						polje_korisnicko_ime.setText("");
@@ -124,7 +125,7 @@ public class ProzorZaLogovanje extends JDialog{
 		cancel.addActionListener(new ActionListener() {
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				System.exit(1);
+				dispose();
 				
 			}
 		});
