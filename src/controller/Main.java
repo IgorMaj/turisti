@@ -55,6 +55,7 @@ public class Main {
 		Aplikacija.ucitajKorisnike();
 		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 		GlavniProzor gp=new GlavniProzor();
+		gp.setLocationRelativeTo(null);
 		gp.setVisible(true);
 		
 		//Za potrebe testiranja izbrisati komentar

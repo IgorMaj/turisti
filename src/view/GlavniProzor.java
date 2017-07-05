@@ -30,7 +30,7 @@ public class GlavniProzor extends JFrame {
 	
 	public GlavniProzor() {
 
-		setSize(800, 600);
+		setSize(850, 650);
 		
 		setTitle("Turisticka agencija");
 
@@ -153,14 +153,14 @@ public class GlavniProzor extends JFrame {
 
 		ImageIcon im = new ImageIcon("images/image.jpg");
 		Image image = im.getImage();
-		Image newimg = image.getScaledInstance(800, 500, java.awt.Image.SCALE_SMOOTH);
+		Image newimg = image.getScaledInstance(850, 600, java.awt.Image.SCALE_SMOOTH);
 		im = new ImageIcon(newimg);
 
 		JLabel labela = new JLabel();
 		labela.setIcon(im);
 
 		imp.add(labela);
-		add(imp, BorderLayout.SOUTH);
+		add(imp, BorderLayout.CENTER);
 
 	}
 

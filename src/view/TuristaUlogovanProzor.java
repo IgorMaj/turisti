@@ -1,10 +1,15 @@
 package view;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
 import java.io.IOException;
 
-import javax.swing.*;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JTabbedPane;
+import javax.swing.JToolBar;
 
 import model.Korisnik;
+import model.Vodic;
 
 
 public class TuristaUlogovanProzor extends JFrame {
@@ -15,13 +20,13 @@ public class TuristaUlogovanProzor extends JFrame {
 	private static final long serialVersionUID = 1L;
 
 	public TuristaUlogovanProzor(Korisnik ulogovani) throws IOException {
-		this.setSize(1000, 800);
+		this.setSize(850, 650);
 		this.setLocationRelativeTo(null);
 		this.setResizable(false);
 		
 		JTabbedPane jtp = new JTabbedPane();
 		JToolBar jtb = new JToolBar();
-		jtb.setPreferredSize(new Dimension(800, 40));
+		jtb.setPreferredSize(new Dimension(800, 20));
 		
 		JButton bIzlogujSe = new JButton("Odjava");
 		jtb.setLayout(new BorderLayout());
@@ -29,7 +34,10 @@ public class TuristaUlogovanProzor extends JFrame {
 		
 		TabProfil tp = new TabProfil(ulogovani);
 		jtp.addTab("Profil", tp);
-		
+		if(ulogovani instanceof Vodic){
+			KreiranjeTurePanel ktp = new KreiranjeTurePanel();
+			jtp.addTab("Kreiraj turu", ktp);
+		}
 		/*Ovde dodavati nove tabove, praviti tabove kao JPanel klase*/
 		
 		this.getContentPane().setLayout(new BorderLayout());
