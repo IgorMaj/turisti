@@ -52,11 +52,8 @@ public class Main {
 		*/
 		
 		Aplikacija.ucitavanjeTura();
-<<<<<<< HEAD
 		Aplikacija.ucitajKorisnike();
-=======
-		Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
->>>>>>> Igorova-grana2
+		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 		GlavniProzor gp=new GlavniProzor();
 		gp.setVisible(true);
 		
