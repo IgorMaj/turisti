@@ -37,7 +37,7 @@ public class RezultatPretrageProzor extends JFrame{
 		Dimension velicinaEkrana = Toolkit.getDefaultToolkit().getScreenSize();
 		int sirina = (int)velicinaEkrana.getWidth();
 		int visina = (int)velicinaEkrana.getHeight();
-		this.setSize(sirina/2, visina/2);
+		this.setSize(sirina/2+50, visina/2);
 	}
 	
 	
