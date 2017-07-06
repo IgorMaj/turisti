@@ -6,6 +6,8 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
@@ -16,9 +18,11 @@ import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import controller.Aplikacija;
 import model.Korisnik;
 
 public class TabProfil extends JPanel {
@@ -29,6 +33,7 @@ public class TabProfil extends JPanel {
 	private static final long serialVersionUID = 1L;
 
 	public TabProfil(Korisnik k) throws IOException{
+		super();
 		
 		this.setLayout(new GridLayout(2,0));
 	
@@ -72,8 +77,7 @@ public class TabProfil extends JPanel {
 	
 		JButton bIzmeniSliku = new JButton("Odaberi sliku");
 		JButton bIzmeniPodatke = new JButton("Izmeni");
-	
-	
+		
 		gbc.gridwidth = 2;
 		gbc.gridheight = 2;
 		gbc.weightx = 0.5;
@@ -126,5 +130,14 @@ public class TabProfil extends JPanel {
 		gbc.gridx = 4;
 		gbc.gridy = 8;
 		licniPodaciPanel.add(bIzmeniPodatke, gbc);
-	}
+		
+		bIzmeniPodatke.addActionListener(new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				
+				IzmenaProfilaDijalog ipd = new IzmenaProfilaDijalog(lImePrikaz, lPrezimePrikaz,
+						lTelefonPrikaz, lKorisnickoImePrikaz);
+			}
+		});
+	}	
 }

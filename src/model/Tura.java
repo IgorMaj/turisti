@@ -13,7 +13,7 @@ public class Tura {
 	private String opis;
 	private int ocena;
 	private int minBrojMesta;
-	private String kreatortTure;
+	private String kreatorTure;
 	private ArrayList<String> vodici;
 	private ArrayList<Termin> termini;
 	private ArrayList<Komentar> komentari;
@@ -23,7 +23,7 @@ public class Tura {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Tura(String idTure, String opis, int ocena, int minBrojMesta, String kreatortTure, ArrayList<String> vodici,
+	public Tura(String idTure, String opis, int ocena, int minBrojMesta, String kreatorTure, ArrayList<String> vodici,
 			ArrayList<Termin> termini, ArrayList<Komentar> komentari, ArrayList<Mesto> gradovi,
 			ArrayList<Destinacija> destinacije) {
 		super();
@@ -31,7 +31,7 @@ public class Tura {
 		this.opis = opis;
 		this.ocena = ocena;
 		this.minBrojMesta = minBrojMesta;
-		this.kreatortTure = kreatortTure;
+		this.kreatorTure = kreatorTure;
 		this.vodici = vodici;
 		this.termini = termini;
 		this.komentari = komentari;
@@ -62,11 +62,11 @@ public class Tura {
 	public void setMinBrojMesta(int minBrojMesta) {
 		this.minBrojMesta = minBrojMesta;
 	}
-	public String getKreatortTure() {
-		return kreatortTure;
+	public String getKreatorTure() {
+		return kreatorTure;
 	}
-	public void setKreatortTure(String kreatortTure) {
-		this.kreatortTure = kreatortTure;
+	public void setKreatorTure(String kreatortTure) {
+		this.kreatorTure = kreatortTure;
 	}
 	public ArrayList<String> getVodici() {
 		return vodici;
@@ -101,7 +101,7 @@ public class Tura {
 	@Override
 	public String toString() {
 		return "Tura [idTure=" + idTure + ", opis=" + opis + ", ocena=" + ocena + ", minBrojMesta=" + minBrojMesta
-				+ ", kreatortTure=" + kreatortTure + ", vodici=" + vodici + ", termini=" + termini + ", komentari="
+				+ ", kreatorTure=" + kreatorTure + ", vodici=" + vodici + ", termini=" + termini + ", komentari="
 				+ komentari + ", gradovi=" + gradovi + ", destinacije=" + destinacije + "]";
 	}
 	

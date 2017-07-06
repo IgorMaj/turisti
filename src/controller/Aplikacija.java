@@ -27,7 +27,8 @@ public class Aplikacija {
 	public static Korisnik trenutnoAktivan=null;
 	public static ArrayList<Korisnik> korisnici = new ArrayList<Korisnik>();
 	public static ArrayList<Tura> ture = new ArrayList<Tura>();
-
+	public static ArrayList<Turista> turisti = new ArrayList<Turista>();
+	public static ArrayList<Vodic> vodici = new ArrayList<Vodic>();
 	
 	public Aplikacija(){
 		
@@ -45,8 +46,7 @@ public class Aplikacija {
 			turista = false;
 		}
 		
-		ArrayList<Turista> turisti = new ArrayList<Turista>();
-		ArrayList<Vodic> vodici = new ArrayList<Vodic>();
+		
 		
 		for (Korisnik kor: korisnici){
 			if (turista && kor instanceof Turista){
@@ -57,10 +57,10 @@ public class Aplikacija {
 		}
 		
 		if (turista){
-			upisiTuriste(turisti);
+			upisiTuriste();
 			return;
 		}
-		upisiVodice(vodici);
+		upisiVodice();
 	}
 
 	public static void obrisiKorisnika() {};
@@ -114,8 +114,8 @@ public class Aplikacija {
 	public static void ucitajKorisnike() throws JsonParseException, JsonMappingException, IOException{
 		ObjectMapper mapper = new ObjectMapper();
 		
-		ArrayList<Turista> turisti = mapper.readValue(new File("fajlovi/turisti.json"),  new TypeReference<ArrayList<Turista>>(){});
-		ArrayList<Vodic> vodici = mapper.readValue(new File("fajlovi/vodici.json"), new TypeReference<ArrayList<Vodic>>(){});
+		turisti = mapper.readValue(new File("fajlovi/turisti.json"),  new TypeReference<ArrayList<Turista>>(){});
+		vodici = mapper.readValue(new File("fajlovi/vodici.json"), new TypeReference<ArrayList<Vodic>>(){});
 		
 		for (int i = 0;i<turisti.size();i++){
 			korisnici.add(turisti.get(i));
@@ -140,12 +140,12 @@ public class Aplikacija {
 	};
 
 	
-	public static void upisiTuriste(ArrayList<Turista> turisti) throws JsonGenerationException, JsonMappingException, IOException{
+	public static void upisiTuriste() throws JsonGenerationException, JsonMappingException, IOException{
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("fajlovi/turisti.json"), turisti);
 	}
 	
-	public static void upisiVodice(ArrayList<Vodic> vodici) throws JsonGenerationException, JsonMappingException, IOException{
+	public static void upisiVodice() throws JsonGenerationException, JsonMappingException, IOException{
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("fajlovi/vodici.json"), vodici);
 	}
@@ -236,7 +236,7 @@ public class Aplikacija {
 		String imePrz = trenutnoAktivan.getIme() + " " + trenutnoAktivan.getPrezime();
 
 		for (int i = 0; i < ture.size(); i++) {
-			if (imePrz.equals(ture.get(i).getKreatortTure())) {
+			if (imePrz.equals(ture.get(i).getKreatorTure())) {
 				t.add(ture.get(i));
 			}
 		}
@@ -258,6 +258,34 @@ public class Aplikacija {
 			}
 		}
 		return t;
+	}
+	
+	public static boolean IzmeniKorisnika(String ime, String prezime, String telefon,
+			String korIme, String lozinka) throws JsonGenerationException,
+	JsonMappingException, IOException{
+		
+		if(korisnikVecPostoji(korIme) == true){
+			return false;
+		}
+		if(!korIme.equals("")){
+			Aplikacija.trenutnoAktivan.setKorIme(korIme);
+		}
+		if(!ime.equals("")){
+			Aplikacija.trenutnoAktivan.setIme(ime);
+		}
+		if(!prezime.equals("")){
+			Aplikacija.trenutnoAktivan.setPrezime(prezime);
+		}
+		if(!telefon.equals("")){
+			Aplikacija.trenutnoAktivan.setTelefon(telefon);
+		}
+		if(!lozinka.equals("")){
+			Aplikacija.trenutnoAktivan.setLozinka(lozinka);
+		}
+		upisiTuriste();
+		upisiVodice();
+		return true;
+		
 	}
 
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException{
