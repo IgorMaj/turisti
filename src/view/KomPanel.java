@@ -14,6 +14,7 @@ import javax.swing.JScrollPane;
 
 import model.Komentar;
 import model.Korisnik;
+import model.Tura;
 
 public class KomPanel extends JPanel {
 
@@ -24,7 +25,7 @@ public class KomPanel extends JPanel {
 	
 	
 	
-	private ArrayList<Komentar> komentari;
+	private Tura tura;
 	private Korisnik ulogovaniKorisnik;
 	private JButton dodajKomentarDugme;
 	private JPanel panel;
@@ -43,11 +44,11 @@ public class KomPanel extends JPanel {
 	
 	public void azurirajPanel() {
 		panel.removeAll();
-		if(this.getKomentari().size()==0 ||this.getKomentari() == null){
+		if(this.getTura().getKomentari().size()==0 ||this.getTura().getKomentari() == null){
 			panel.add(nemaKomentaraLabela);
 		}
 		else{
-			for(Komentar kom:this.getKomentari()){
+			for(Komentar kom:this.getTura().getKomentari()){
 				panel.add(new KomentarIzgled(kom));
 			}
 			
@@ -58,8 +59,8 @@ public class KomPanel extends JPanel {
 	}
 
 
-	KomPanel(ArrayList<Komentar> komentari2,Korisnik ulogovaniKorisnik){
-		this.komentari = komentari2;
+	KomPanel(Tura tura,Korisnik ulogovaniKorisnik){
+		this.tura = tura;
 		this.ulogovaniKorisnik = ulogovaniKorisnik;
 		nemaKomentaraLabela = new JLabel("Nema komentara!");
 		
@@ -102,8 +103,8 @@ public class KomPanel extends JPanel {
 	}
 
 
-	public ArrayList<Komentar> getKomentari() {
-		return komentari;
+	public Tura getTura() {
+		return tura;
 	}
 
 

@@ -5,7 +5,6 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -16,6 +15,7 @@ import javax.swing.JTextArea;
 
 import model.Komentar;
 import model.Korisnik;
+import model.Tura;
 
 public class DodajKomDialog extends JDialog {
 
@@ -24,7 +24,7 @@ public class DodajKomDialog extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private ArrayList<Komentar> komentari;
+	private Tura tura;
 	private JTextArea tekstualnoPolje;
 	private JButton dodajDugme;
 	private JButton otkaziDugme;
@@ -34,7 +34,7 @@ public class DodajKomDialog extends JDialog {
 	
 	public DodajKomDialog(KomPanel komP){
 		super();
-		this.komentari = komP.getKomentari();
+		this.tura = komP.getTura();
 		BorderLayout layout = new BorderLayout();
 		this.autor = komP.getUlogovaniKorisnik();
 		this.setLayout(layout);
@@ -85,7 +85,7 @@ public class DodajKomDialog extends JDialog {
 			return;
 		}
 		else{
-			this.komentari.add(new Komentar(new Date(),sadrzina,this.autor));
+			this.tura.getKomentari().add(new Komentar(new Date(),sadrzina,this.autor, this.tura));
 			
 		}
 		komP.azurirajPanel();
