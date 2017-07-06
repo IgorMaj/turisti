@@ -1,35 +1,74 @@
 [ {
-  "korIme" : "Milan123",
-  "lozinka" : "milan",
-  "ime" : "Milan",
-  "prezime" : "Milanovic",
-  "telefon" : "065555333",
-  "komentari" : [ ],
-  "rezervacije" : [ ],
-  "ture" : [ ]
-}, {
-  "korIme" : "Janko135",
+  "@id" : "0e4947d5-56ca-4e63-93a6-c66501c528e0",
+  "korIme" : "janko",
   "lozinka" : "janko",
   "ime" : "Janko",
   "prezime" : "Jankovic",
-  "telefon" : "064555333",
+  "telefon" : "06988765651",
   "komentari" : [ ],
   "rezervacije" : [ ],
   "ture" : [ {
+    "@id" : "df94675f-a125-4d55-bf60-78abdca8b390",
     "idTure" : "Kavos-nikad ne spava",
     "opis" : "10 neispavanih noci",
     "ocena" : 0,
     "minBrojMesta" : 20,
-    "kreatorTure" : "Janko Jankovic",
-    "vodici" : [ "Janko Jankovic", "djoka djokic" ],
+    "kreatorTure" : "0e4947d5-56ca-4e63-93a6-c66501c528e0",
+    "vodici" : [ "0e4947d5-56ca-4e63-93a6-c66501c528e0", {
+      "@id" : "43259026-5230-4ca4-8033-2f320c89e008",
+      "korIme" : "milan",
+      "lozinka" : "milan",
+      "ime" : "Milan",
+      "prezime" : "Milanovic",
+      "telefon" : "06541984561",
+      "komentari" : [ ],
+      "rezervacije" : [ ],
+      "ture" : [ {
+        "@id" : "cfe44673-88f5-4ab5-ac73-d97d8766a0b6",
+        "idTure" : "Zlatibor-5 dana",
+        "opis" : "odmor u prirodi",
+        "ocena" : 7,
+        "minBrojMesta" : 20,
+        "kreatorTure" : "43259026-5230-4ca4-8033-2f320c89e008",
+        "vodici" : [ "0e4947d5-56ca-4e63-93a6-c66501c528e0", "43259026-5230-4ca4-8033-2f320c89e008" ],
+        "termini" : [ ],
+        "komentari" : [ ],
+        "gradovi" : [ {
+          "naziv" : "Zlatibor",
+          "ptt" : 22240
+        } ],
+        "destinacije" : [ {
+          "naziv" : "Mokra Gora",
+          "opis" : "selo",
+          "mesto" : {
+            "naziv" : "Zlatibor",
+            "ptt" : 22240
+          }
+        } ]
+      } ]
+    } ],
     "termini" : [ {
+      "@id" : "abdd7422-259f-400b-9bb2-873b0e27d743",
+      "aktivnoStanje" : {
+        "class" : "model.Kreiran",
+        "@id" : "b1253f29-2745-43ca-8b99-b6b6391099f3",
+        "termin" : "abdd7422-259f-400b-9bb2-873b0e27d743"
+      },
+      "tura" : "df94675f-a125-4d55-bf60-78abdca8b390",
       "pocetakTure" : "30.6.2017",
       "krajTure" : "10.7.2017",
       "brojSlobodnihMesta" : 50,
-      "aktivan" : true,
+      "aktivan" : false,
       "cena" : 200.0,
       "rezervacije" : [ ]
     }, {
+      "@id" : "b2d620b3-e4e6-4908-b0f9-9393ecc3d1c6",
+      "aktivnoStanje" : {
+        "class" : "model.Aktivan",
+        "@id" : "3d048c22-0665-40b4-bd60-33242eaab676",
+        "termin" : "b2d620b3-e4e6-4908-b0f9-9393ecc3d1c6"
+      },
+      "tura" : "df94675f-a125-4d55-bf60-78abdca8b390",
       "pocetakTure" : "15.7.2017",
       "krajTure" : "25.7.2017",
       "brojSlobodnihMesta" : 50,
@@ -50,76 +89,5 @@
         "ptt" : 5458
       }
     } ]
-  }, {
-    "idTure" : "Zlatibor-5 dana",
-    "opis" : "odmor u prirodi",
-    "ocena" : 7,
-    "minBrojMesta" : 20,
-    "kreatorTure" : "Janko Jankovic",
-    "vodici" : [ "Janko Jankovic" ],
-    "termini" : [ {
-      "pocetakTure" : "30.6.2017",
-      "krajTure" : "10.7.2017",
-      "brojSlobodnihMesta" : 50,
-      "aktivan" : true,
-      "cena" : 200.0,
-      "rezervacije" : [ ]
-    }, {
-      "pocetakTure" : "15.7.2017",
-      "krajTure" : "25.7.2017",
-      "brojSlobodnihMesta" : 50,
-      "aktivan" : true,
-      "cena" : 250.0,
-      "rezervacije" : [ ]
-    } ],
-    "komentari" : [ ],
-    "gradovi" : [ {
-      "naziv" : "Zlatibor",
-      "ptt" : 22240
-    } ],
-    "destinacije" : [ {
-      "naziv" : "Mokra Gora",
-      "opis" : "selo",
-      "mesto" : {
-        "naziv" : "Zlatibor",
-        "ptt" : 22240
-      }
-    } ]
   } ]
-}, {
-  "korIme" : "Nikola90",
-  "lozinka" : "nikola",
-  "ime" : "Nikola",
-  "prezime" : "Nikolic",
-  "telefon" : "064123445",
-  "komentari" : [ ],
-  "rezervacije" : [ ],
-  "ture" : [ ]
-}, {
-  "korIme" : "Petar",
-  "lozinka" : "pera",
-  "ime" : "Petar",
-  "prezime" : "Petrovic",
-  "telefon" : "062345128",
-  "komentari" : [ ],
-  "rezervacije" : [ ],
-  "ture" : [ ]
-}, {
-  "korIme" : "Mladen",
-  "lozinka" : "asf",
-  "ime" : "safsaf",
-  "prezime" : "fs",
-  "telefon" : "asf",
-  "komentari" : [ ],
-  "rezervacije" : [ ],
-  "ture" : [ ]
-}, {
-  "korIme" : "Slaven96",
-  "lozinka" : "slaven",
-  "ime" : "Slaven",
-  "prezime" : "Garic",
-  "telefon" : "065444333",
-  "komentari" : [ ],
-  "rezervacije" : [ ],
-  "ture" : [ ]
-} ]
+}, "43259026-5230-4ca4-8033-2f320c89e008" ]

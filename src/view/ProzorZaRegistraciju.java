@@ -183,7 +183,7 @@ public class ProzorZaRegistraciju extends JDialog {
 					return;
 				}else{
 					Korisnik k;
-					if (tip.equals("turista")){
+					if (tip.getSelectedItem().equals("turista")){
 						k = new Turista(user.getText().trim(),pass.getText().trim(),text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 					}else{
 						k = new Vodic(user.getText().trim(),pass.getText().trim(),text_name.getText().trim(),text_surname.getText().trim(),text_phone_number.getText().trim(),new ArrayList<Komentar>(),new ArrayList<Rezervacija>(),new ArrayList<Tura>());

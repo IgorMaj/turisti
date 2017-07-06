@@ -3,12 +3,15 @@ import java.awt.Dimension;
 import java.awt.Font;
 import java.awt.GridLayout;
 import java.awt.Toolkit;
+
 import javax.swing.BoxLayout;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+
 import model.Korisnik;
 import model.Tura;
+import model.Vodic;
 
 public class TuraProzor extends JFrame{
 
@@ -33,8 +36,8 @@ public class TuraProzor extends JFrame{
 		JLabel ocenaLabela = new JLabel("\tOcena: "+this.tura.getOcena());
 		ocenaLabela.setFont(new Font("Serif", Font.BOLD, 24));
 		String vodiciImena = "";
-		for(String v:this.tura.getVodici()){
-			vodiciImena += v+", ";
+		for(Vodic v:this.tura.getVodici()){
+			vodiciImena += v.getIme()+" "+v.getPrezime()+", ";
 		}
 		JLabel vodicLabela = new JLabel("\tVodici: "+vodiciImena);
 		vodicLabela.setFont(new Font("Serif", Font.BOLD, 24));
@@ -47,7 +50,7 @@ public class TuraProzor extends JFrame{
 	}
 	
 	private void podesiKomentare(){
-		KomPanel kompanel = new KomPanel(this.tura.getKomentari(),this.ulogovaniKorisnik);
+		KomPanel kompanel = new KomPanel(this.tura,this.ulogovaniKorisnik);
 			this.add(kompanel);
 		}
 	

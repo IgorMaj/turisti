@@ -21,6 +21,7 @@ import javax.swing.table.DefaultTableModel;
 
 import controller.Aplikacija;
 import model.Tura;
+import model.Vodic;
 
 public class BrisanjeTuraPanel extends JPanel {
 
@@ -35,7 +36,7 @@ public class BrisanjeTuraPanel extends JPanel {
 		g.anchor = GridBagConstraints.NORTHWEST;
 		g.insets = new Insets(2, 1, 2, 1);
 
-		ArrayList<Tura> tureKojeVodi = Aplikacija.prikazTuraKojeJeVodicKreirao();
+		ArrayList<Tura> tureKojeVodi = ((Vodic)Aplikacija.trenutnoAktivan).getTure();
 		if (!tureKojeVodi.isEmpty()) {
 			Object[] naziviKolona = new String[4];
 			naziviKolona[0] = "ID Ture";
@@ -91,6 +92,7 @@ public class BrisanjeTuraPanel extends JPanel {
 							for (Tura t : Aplikacija.ture) {
 								if (t.getIdTure().equals(id)) {
 									Aplikacija.ture.remove(t);
+									
 									try {
 										Aplikacija.obrisiTuru(t);
 									} catch (IOException e) {

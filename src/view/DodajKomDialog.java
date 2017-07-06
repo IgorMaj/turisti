@@ -84,7 +84,7 @@ public class DodajKomDialog extends JDialog {
 			return;
 		}
 		else{
-			this.komentari.dodajKomentar(new Komentar(new Date(),sadrzina,this.autor));
+			this.komentari.dodajKomentar(new Komentar(new Date(),sadrzina,this.autor, this.komentari.tura));
 			
 		}
 		

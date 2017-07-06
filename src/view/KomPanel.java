@@ -17,6 +17,7 @@ import javax.swing.JScrollPane;
 import model.Komentar;
 import model.Komentari;
 import model.Korisnik;
+import model.Tura;
 
 public class KomPanel extends JPanel implements Observer {
 
@@ -43,8 +44,8 @@ public class KomPanel extends JPanel implements Observer {
 	}
 	
 	
-	KomPanel(ArrayList<Komentar> komentari2,Korisnik ulogovaniKorisnik){
-		this.komentari = new Komentari(komentari2,ulogovaniKorisnik);
+	KomPanel(Tura tura,Korisnik ulogovaniKorisnik){
+		this.komentari = new Komentari(tura,ulogovaniKorisnik);
 		this.komentari.addObserver(this);
 		this.ulogovaniKorisnik = ulogovaniKorisnik;
 		nemaKomentaraLabela = new JLabel("Nema komentara!");
@@ -79,11 +80,11 @@ public class KomPanel extends JPanel implements Observer {
 		BoxLayout form = new BoxLayout(panel,BoxLayout.Y_AXIS);
 		panel.setLayout(form);
 		JScrollPane jscroll = new JScrollPane(panel);
-		if(this.komentari.komentari.size()==0 ||this.komentari.komentari == null){
+		if(this.komentari.tura.getKomentari().size()==0 ||this.komentari.tura.getKomentari() == null){
 			panel.add(nemaKomentaraLabela);
 		}
 		else{
-			for(Komentar kom:this.komentari.komentari){
+			for(Komentar kom:this.komentari.tura.getKomentari()){
 				panel.add(new KomentarIzgled(kom));
 			}
 			
@@ -98,7 +99,7 @@ public class KomPanel extends JPanel implements Observer {
 
 	@Override
 	public void update(Observable arg0, Object arg1){
-		ArrayList<Komentar> lista = ((Komentari)arg0).komentari;
+		ArrayList<Komentar> lista = ((Komentari)arg0).tura.getKomentari();
 		Komentar poslednji = lista.get(lista.size()-1);
 		panel.remove(nemaKomentaraLabela);
 		panel.add(new KomentarIzgled(poslednji));
