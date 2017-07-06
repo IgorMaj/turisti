@@ -5,6 +5,7 @@ import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import java.util.Date;
 
 import javax.swing.JButton;
@@ -14,7 +15,6 @@ import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
 import model.Komentar;
-import model.Komentari;
 import model.Korisnik;
 
 public class DodajKomDialog extends JDialog {
@@ -24,18 +24,19 @@ public class DodajKomDialog extends JDialog {
 	 */
 	private static final long serialVersionUID = 1L;
 	
-	private Komentari komentari;
+	private ArrayList<Komentar> komentari;
 	private JTextArea tekstualnoPolje;
 	private JButton dodajDugme;
 	private JButton otkaziDugme;
 	private Korisnik autor;
+
 	
 	
-	public DodajKomDialog(Komentari komentari,Korisnik autor){
+	public DodajKomDialog(KomPanel komP){
 		super();
-		this.komentari = komentari;
+		this.komentari = komP.getKomentari();
 		BorderLayout layout = new BorderLayout();
-		this.autor = autor;
+		this.autor = komP.getUlogovaniKorisnik();
 		this.setLayout(layout);
 		this.tekstualnoPolje = new JTextArea();
 		this.tekstualnoPolje.setEditable(true);
@@ -50,7 +51,7 @@ public class DodajKomDialog extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				prihvatiDialog();
+				prihvatiDialog(komP);
 				
 			}});
 		otkaziDugme.addActionListener(new ActionListener(){
@@ -77,17 +78,17 @@ public class DodajKomDialog extends JDialog {
 	}
 
 
-	private void prihvatiDialog() {
+	private void prihvatiDialog(KomPanel komP) {
 		String sadrzina = this.tekstualnoPolje.getText();
 		if(sadrzina.length()==0){
 			JOptionPane.showMessageDialog(DodajKomDialog.this, "Komentar ne moze biti prazan!");
 			return;
 		}
 		else{
-			this.komentari.dodajKomentar(new Komentar(new Date(),sadrzina,this.autor));
+			this.komentari.add(new Komentar(new Date(),sadrzina,this.autor));
 			
 		}
-		
+		komP.azurirajPanel();
 		this.dispose();
 		
 	}

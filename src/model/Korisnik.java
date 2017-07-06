@@ -43,6 +43,11 @@ public abstract class Korisnik {
 		rezervacije.remove(indexTure);
 		
 	};
+	
+	public void platiRezervaciju(int indexTure){
+		Rezervacija r = rezervacije.get(indexTure);
+		r.setPlacena(true);
+	}
 	public void oceniTuru(){}
 	public String getKorIme() {
 		return korIme;

@@ -35,7 +35,7 @@ public class TabProfil extends JPanel {
 	public TabProfil(Korisnik k) throws IOException{
 		super();
 		
-		this.setLayout(new GridLayout(2,0));
+		this.setLayout(new GridLayout(2,1));
 	
 		BufferedImage profilnaSlika = ImageIO.read(new File("images/User-blue-icon.png"));
 		JLabel lSlika = new JLabel(new ImageIcon(profilnaSlika));
@@ -48,6 +48,13 @@ public class TabProfil extends JPanel {
 		licniPodaciPanel.setLayout(new GridBagLayout());
 	
 		this.add(licniPodaciPanel);
+		
+		TitledBorder okvirOtkazivanje = BorderFactory.createTitledBorder(okvirLicniPodaciBoja, "Placanje i otkazivanje");
+	
+		
+		OtkazivanjeRezervacijaIzgled otk = new OtkazivanjeRezervacijaIzgled(k);
+		otk.setBorder(okvirOtkazivanje);
+		this.add(otk);
 	
 		GridBagConstraints gbc = new GridBagConstraints();
 	

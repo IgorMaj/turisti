@@ -3,12 +3,10 @@ package view;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
-import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import javax.swing.JButton;
-import javax.swing.JFrame;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -16,7 +14,7 @@ import javax.swing.JScrollPane;
 import model.Korisnik;
 import model.Rezervacija;
 
-public class OtkazivanjeRezervacijaIzgled extends JFrame {
+public class OtkazivanjeRezervacijaIzgled extends JPanel {
 
 	/**
 	 * 
@@ -34,14 +32,15 @@ public class OtkazivanjeRezervacijaIzgled extends JFrame {
 
 
 	private JButton dugmeOsvezi;
+
+
+	private JButton dugmePlati;
 	
 	public OtkazivanjeRezervacijaIzgled(Korisnik ulogovaniKorisnik){
 		super();
 		this.ulogovaniKorisnik = ulogovaniKorisnik;
-		this.setTitle("Rezervacije");
 		podesiTabelu();
 		podesiIzgled();
-		podesiVelicinu();
 		podesiDugmad();
 	}
 	
@@ -66,10 +65,24 @@ public class OtkazivanjeRezervacijaIzgled extends JFrame {
 				tabelaRezervacija.azurirajTabelu();
 			}});
 		
+		dugmePlati.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				int trenutniIndex = tabelaRezervacija.getSelectedRow();
+				if(trenutniIndex == -1){
+					JOptionPane.showMessageDialog(OtkazivanjeRezervacijaIzgled.this, "Nije odabrana rezervacija!");
+					return;
+				}
+				ulogovaniKorisnik.platiRezervaciju(trenutniIndex);
+				tabelaRezervacija.azurirajTabelu();
+				
+			}});
+		
 	}
 
-	private void podesiVelicinu(){
-		Dimension velicinaEkrana = Toolkit.getDefaultToolkit().getScreenSize();
+	void podesiVelicinu(){
+		Dimension velicinaEkrana = this.getParent().getSize();
 		int sirina = (int)velicinaEkrana.getWidth();
 		int visina = (int)velicinaEkrana.getHeight();
 		this.setSize(sirina/2, visina/2);
@@ -81,11 +94,13 @@ public class OtkazivanjeRezervacijaIzgled extends JFrame {
 		this.setLayout(komform);
 		this.add(jscroll,BorderLayout.CENTER);
 		dugmeOtkazi = new JButton("Otkazi");
-		dugmeOsvezi = new JButton("Osvezi");
+		dugmeOsvezi = new JButton("Osvezi/Deselektuj");
+		dugmePlati = new JButton("Plati");
 		FlowLayout donji = new FlowLayout();
 		JPanel donjiPanel = new JPanel();
 		donjiPanel.setLayout(donji);
 		donjiPanel.add(dugmeOtkazi);
+		donjiPanel.add(dugmePlati);
 		donjiPanel.add(dugmeOsvezi);
 		this.add(donjiPanel,BorderLayout.PAGE_END);
 		
