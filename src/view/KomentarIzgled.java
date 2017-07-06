@@ -26,7 +26,7 @@ public class KomentarIzgled extends JPanel {
 		JLabel autorKomentara = new JLabel(komentar.getAutor().getKorIme());
 		autorKomentara.setFont(new Font("Serif", Font.ITALIC, 18));
 		gornji.add(autorKomentara);
-		gornji.add(new JLabel(smdf.format(komentar.getDatumPostavljanja())));
+		gornji.add(new JLabel(smdf.format(komentar.getDatumObjave())));
 		this.add(gornji,BorderLayout.PAGE_START);
 		JLabel sadrzaj = new JLabel("<html><p>"+this.komentar.getSadrzina()+"</p></html>");
 		this.add(sadrzaj, BorderLayout.CENTER);

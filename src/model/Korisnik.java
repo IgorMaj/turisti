@@ -2,6 +2,13 @@ package model;
 
 import java.util.ArrayList;
 
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.JsonTypeInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.As;
+import com.fasterxml.jackson.annotation.JsonTypeInfo.Id;
+
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public abstract class Korisnik {
 	
 	private String korIme;
@@ -20,7 +27,6 @@ public abstract class Korisnik {
 	
 	public Korisnik(String korIme, String lozinka, String ime, String prezime, String telefon,
 			ArrayList<Komentar> komentari, ArrayList<Rezervacija> rezervacije) {
-		super();
 		this.korIme = korIme;
 		this.lozinka = lozinka;
 		this.ime = ime;
@@ -90,6 +96,12 @@ public abstract class Korisnik {
 	}
 	public void setRezervacije(ArrayList<Rezervacija> rezervacije) {
 		this.rezervacije = rezervacije;
+	}
+
+	@Override
+	public String toString() {
+		return "Korisnik [korIme=" + korIme + ", lozinka=" + lozinka + ", ime=" + ime + ", prezime=" + prezime
+				+ ", telefon=" + telefon + ", komentari=" + komentari + ", rezervacije=" + rezervacije + "]";
 	};	
 	
 	

@@ -1,11 +1,14 @@
 package model;
 
 import java.util.ArrayList;
+
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonAutoDetect.Visibility;
+import com.fasterxml.jackson.annotation.JsonIdentityInfo;
+import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 @JsonAutoDetect(fieldVisibility= Visibility.ANY)
-
+@JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class Tura {
 	
 	
@@ -13,8 +16,8 @@ public class Tura {
 	private String opis;
 	private int ocena;
 	private int minBrojMesta;
-	private String kreatorTure;
-	private ArrayList<String> vodici;
+	private Vodic kreatorTure;
+	private ArrayList<Vodic> vodici;
 	private ArrayList<Termin> termini;
 	private ArrayList<Komentar> komentari;
 	private ArrayList<Mesto> gradovi;
@@ -23,7 +26,7 @@ public class Tura {
 		super();
 		// TODO Auto-generated constructor stub
 	}
-	public Tura(String idTure, String opis, int ocena, int minBrojMesta, String kreatorTure, ArrayList<String> vodici,
+	public Tura(String idTure, String opis, int ocena, int minBrojMesta, Vodic kreatorTure, ArrayList<Vodic> vodici,
 			ArrayList<Termin> termini, ArrayList<Komentar> komentari, ArrayList<Mesto> gradovi,
 			ArrayList<Destinacija> destinacije) {
 		super();
@@ -62,16 +65,16 @@ public class Tura {
 	public void setMinBrojMesta(int minBrojMesta) {
 		this.minBrojMesta = minBrojMesta;
 	}
-	public String getKreatorTure() {
+	public Vodic getKreatorTure() {
 		return kreatorTure;
 	}
-	public void setKreatorTure(String kreatorTure) {
+	public void setKreatorTure(Vodic kreatorTure) {
 		this.kreatorTure = kreatorTure;
 	}
-	public ArrayList<String> getVodici() {
+	public ArrayList<Vodic> getVodici() {
 		return vodici;
 	}
-	public void setVodici(ArrayList<String> vodici) {
+	public void setVodici(ArrayList<Vodic> vodici) {
 		this.vodici = vodici;
 	}
 	public ArrayList<Termin> getTermini() {
@@ -104,6 +107,9 @@ public class Tura {
 				+ ", kreatorTure=" + kreatorTure + ", vodici=" + vodici + ", termini=" + termini + ", komentari="
 				+ komentari + ", gradovi=" + gradovi + ", destinacije=" + destinacije + "]";
 	}
+	
+	
+	
 	
 	
 }

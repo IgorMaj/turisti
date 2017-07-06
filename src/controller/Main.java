@@ -5,31 +5,26 @@ import java.util.ArrayList;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import model.Aktivan;
+import model.Destinacija;
 import model.Komentar;
+import model.Kreiran;
+import model.Mesto;
 import model.Rezervacija;
-import model.Turista;
+import model.Termin;
+import model.Tura;
+import model.Vodic;
 import view.GlavniProzor;
 
 public class Main {
 
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
+		
+		Aplikacija.ucitavanjeTura();
+		Aplikacija.ucitajKorisnike();
+		
 		//test slucajevi za ture
-		/*ArrayList <Tura> ture = new ArrayList<Tura>();
-		ArrayList<Komentar> kom=new ArrayList<Komentar >();
-		ArrayList <Rezervacija> rez = new ArrayList<Rezervacija>();
-	
-		
-		Vodic v1= new Vodic("pero", "123", "petar", "petrovic","4810",kom,rez,ture);
-		Vodic v2= new Vodic("djole", "321", "djoka", "djokic","8646",kom,rez,ture);
-		
-		ArrayList <String> vodici = new ArrayList <String>();
-		vodici.add("petar petrovic");
-		vodici.add("djoka djokic");
-		ArrayList <Termin> ter = new ArrayList <Termin>();
-		Termin ter1= new Termin ("30.6.2017","10.7.2017", 50,true,200,rez);
-		Termin ter2= new Termin ("15.7.2017","25.7.2017", 50,true,250,rez);
-		ter.add(ter1);
-		ter.add(ter2);
+		/*
 		ArrayList <Mesto> m = new ArrayList <Mesto>();
 		Mesto m1= new Mesto("Kavos",5458);
 		m.add(m1);
@@ -43,16 +38,24 @@ public class Main {
 		ArrayList <Destinacija> dest = new ArrayList <Destinacija>();
 		Destinacija d2= new Destinacija ("Mokra Gora","selo",mm);
 		dest.add(d2);
-		Tura t1= new Tura ("Kavos-nikad ne spava","10 neispavanih noci",0,20,"petar petrovic" ,vodici,ter,kom,m,d);
-		Tura t2= new Tura ("Zlatibor-5 dana","odmor u prirodi",7,20,"djoka djokic",new ArrayList<String>(){{add("djoka djokic");}},ter,kom,mesta,dest);
-		Aplikacija.trenutnoAktivan = v1;
+		ArrayList<Vodic> vodici = new ArrayList<Vodic>(){{add((Vodic) Aplikacija.korisnici.get(2));add((Vodic) Aplikacija.korisnici.get(3));}};
+		Tura t1= new Tura ("Kavos-nikad ne spava","10 neispavanih noci",0,20, (Vodic) Aplikacija.korisnici.get(2), vodici, new ArrayList<Termin>(),new ArrayList<Komentar >(),m,d);
+		Tura t2= new Tura ("Zlatibor-5 dana","odmor u prirodi",7,20,(Vodic)Aplikacija.korisnici.get(3),vodici,new ArrayList<Termin>(),new ArrayList<Komentar >(),mesta,dest);
+		
+		Termin ter1= new Termin (new Kreiran(),t1,"30.6.2017","10.7.2017", 50,false,200,new ArrayList<Rezervacija>());
+		Termin ter2= new Termin (new Aktivan(),t1,"15.7.2017","25.7.2017", 50,true,250,new ArrayList<Rezervacija>());
+		t1.getTermini().add(ter1);
+		t1.getTermini().add(ter2);
+		
+		
+		Aplikacija.trenutnoAktivan = Aplikacija.korisnici.get(2);
 		Aplikacija.dodajTuru(t1);
-		Aplikacija.trenutnoAktivan = v2;
+		Aplikacija.trenutnoAktivan = Aplikacija.korisnici.get(3);
 		Aplikacija.dodajTuru(t2);
+		
 		*/
 		
-		Aplikacija.ucitavanjeTura();
-		Aplikacija.ucitajKorisnike();
+		//System.out.println(((Vodic)Aplikacija.korisnici.get(3)).getTure().toString());
 		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 		GlavniProzor gp=new GlavniProzor();
 		gp.setLocationRelativeTo(null);

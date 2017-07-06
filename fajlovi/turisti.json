@@ -1,33 +1,19 @@
 [ {
-  "korIme" : "Marko90",
-  "lozinka" : "marko",
-  "ime" : "Marko",
-  "prezime" : "Markovic",
-  "telefon" : "064241232",
+  "@id" : "9c4c5a89-dd25-4f55-8887-ce821d90c602",
+  "korIme" : "ognjen",
+  "lozinka" : "ognjen",
+  "ime" : "Ognjen",
+  "prezime" : "Ognjenovic",
+  "telefon" : "0651984981",
   "komentari" : [ ],
   "rezervacije" : [ ]
 }, {
-  "korIme" : "Mladen75",
-  "lozinka" : "mladen",
-  "ime" : "Mladen",
-  "prezime" : "Mladenovic",
-  "telefon" : "065227877",
-  "komentari" : [ ],
-  "rezervacije" : [ ]
-}, {
-  "korIme" : "Branko",
-  "lozinka" : "branko",
-  "ime" : "Branko",
-  "prezime" : "Jankovic",
-  "telefon" : "065123345",
-  "komentari" : [ ],
-  "rezervacije" : [ ]
-}, {
-  "korIme" : "Jovana",
-  "lozinka" : "jovana",
-  "ime" : "Jovana",
-  "prezime" : "Jovanovic",
-  "telefon" : "065333444",
+  "@id" : "ec9b2896-5f4b-4e9b-b2bf-2e50769c2f1d",
+  "korIme" : "ana",
+  "lozinka" : "ana",
+  "ime" : "Ana",
+  "prezime" : "Anic",
+  "telefon" : "0811894",
   "komentari" : [ ],
   "rezervacije" : [ ]
 } ]
