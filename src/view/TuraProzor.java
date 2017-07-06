@@ -37,7 +37,7 @@ public class TuraProzor extends JFrame{
 		ocenaLabela.setFont(new Font("Serif", Font.BOLD, 24));
 		String vodiciImena = "";
 		for(Vodic v:this.tura.getVodici()){
-			vodiciImena += v+", ";
+			vodiciImena += v.getIme() + " " + v.getPrezime() + ", ";
 		}
 		JLabel vodicLabela = new JLabel("\tVodici: "+vodiciImena);
 		vodicLabela.setFont(new Font("Serif", Font.BOLD, 24));

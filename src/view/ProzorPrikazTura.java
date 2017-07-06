@@ -21,7 +21,7 @@ import com.fasterxml.jackson.databind.JsonMappingException;
 import controller.Aplikacija;
 import model.Tura;
 
-public class ProzorPrikazTura extends JFrame {
+public class ProzorPrikazTura extends JPanel {
 	/**
 	 * 
 	 */
@@ -35,7 +35,7 @@ public class ProzorPrikazTura extends JFrame {
 	public ProzorPrikazTura(ArrayList<Tura> ture){
 		super();
 		setSize(550,550);
-		setTitle("Prikaz tura");
+		//setTitle("Prikaz tura");
 		
 		
 		JPanel p1 = new JPanel(new GridBagLayout());
