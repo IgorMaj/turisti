@@ -65,8 +65,8 @@ public class Tura {
 	public String getKreatorTure() {
 		return kreatorTure;
 	}
-	public void setKreatorTure(String kreatortTure) {
-		this.kreatorTure = kreatortTure;
+	public void setKreatorTure(String kreatorTure) {
+		this.kreatorTure = kreatorTure;
 	}
 	public ArrayList<String> getVodici() {
 		return vodici;

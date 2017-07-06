@@ -113,7 +113,7 @@ public class GlavniProzor extends JFrame {
 		imp.add(srednjiP, BorderLayout.CENTER);
 		imp.add(desniP, BorderLayout.EAST);
 
-		desniP.add(new JLabel("Tip pretrage: "));
+		desniP.add(new JLabel("Tip pretrage tura: "));
 		desniP.add(opcijePretrage);
 		
 		

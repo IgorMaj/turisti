@@ -24,13 +24,7 @@ public class KreiranjeTurePanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 
-	/*
-	 * 
-	 *  private ArrayList<Termin> termini;  private ArrayList<Mesto> gradovi; private
-	 * ArrayList<Destinacija> destinacije;
-	 */
-
-	KreiranjeTurePanel() {
+	KreiranjeTurePanel(BrisanjeTuraPanel btp) {
 		JPanel p1 = new JPanel (new GridBagLayout());
 		GridBagConstraints g = new GridBagConstraints();
 		g.anchor = GridBagConstraints.NORTHWEST;
