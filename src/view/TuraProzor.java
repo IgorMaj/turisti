@@ -37,7 +37,7 @@ public class TuraProzor extends JFrame{
 		ocenaLabela.setFont(new Font("Serif", Font.BOLD, 24));
 		String vodiciImena = "";
 		for(Vodic v:this.tura.getVodici()){
-			vodiciImena += v.getIme()+" "+v.getPrezime()+", ";
+			vodiciImena += v+", ";
 		}
 		JLabel vodicLabela = new JLabel("\tVodici: "+vodiciImena);
 		vodicLabela.setFont(new Font("Serif", Font.BOLD, 24));
@@ -71,6 +71,10 @@ public class TuraProzor extends JFrame{
 		this.add(terminIzgled);
 	}
 	
+	private void podesiMesta(){
+		MestoIzgled mi = new MestoIzgled(tura.getGradovi());
+		this.add(mi);
+	}
 	
 
 	public TuraProzor(Tura tura,Korisnik ulogovaniKorisnik){
@@ -79,12 +83,13 @@ public class TuraProzor extends JFrame{
 		this.setTitle(tura.getIdTure());
 		podesiVelicinu();
 		this.setLayout(new GridLayout(2,2));
+
 		podesiOpisTure();
 		podesiInformacije();
 		podesiKomentare();
 		podesiTermine();
+		podesiMesta();
 	}
-	
 	
 	
 }

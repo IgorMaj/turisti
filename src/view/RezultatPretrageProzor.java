@@ -46,9 +46,10 @@ public class RezultatPretrageProzor extends JFrame{
 		BoxLayout form = new BoxLayout(glavniPanel,BoxLayout.Y_AXIS);
 		glavniPanel.setLayout(form);
 		JScrollPane jscroll = new JScrollPane(glavniPanel);
-		for(Tura t:ture){
+		/*for(Tura t:ture){
 			glavniPanel.add(new MiniTuraIzgled(t,velicinaUvoda,ulogovaniKorisnik));
-		}
+		}*/
+		glavniPanel.add(new ProzorPrikazTura(ture));
 		this.add(jscroll);
 		
 	}
