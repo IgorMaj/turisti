@@ -12,6 +12,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 
 import model.Korisnik;
 import model.Rezervacija;
+import model.SadrzalacPodataka;
 import model.Tura;
 import model.Turista;
 import model.Vodic;
@@ -25,19 +26,70 @@ public class Aplikacija {
 	public static ArrayList<Turista> turisti = new ArrayList<Turista>();
 	public static ArrayList<Vodic> vodici = new ArrayList<Vodic>();
 	
+	//sadrzi reference na sve - kontejner
+	public static SadrzalacPodataka podaci = new SadrzalacPodataka(turisti,vodici,ture);
+	
 	public static void pretraziKorisnike() {};
+	
+	//nova metoda
+	public static void ucitajPodatke(){
+		ObjectMapper mapper = new ObjectMapper();
+		
+		try {
+			podaci = mapper.readValue(new File("fajlovi/podaci.json"),new TypeReference<SadrzalacPodataka>(){});
+		} catch (JsonParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		turisti = podaci.getTuristi();
+		vodici = podaci.getVodici();
+		ture = podaci.getTure();
+		
+		//za potrebe logovanja
+		for (int i = 0;i<turisti.size();i++){
+			korisnici.add(turisti.get(i));
+		}	
+		
+		for (int i = 0;i<vodici.size();i++){
+			korisnici.add(vodici.get(i));
+		}
+	}
+
+	//nova metoda
+	public static void upisiPodatke(){
+		ObjectMapper mapper = new ObjectMapper();
+		try {
+			mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/podaci.json"), podaci);
+		} catch (JsonGenerationException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (JsonMappingException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+	}
 
 	public static void dodajKorisnika(Korisnik k) throws JsonGenerationException, JsonMappingException, IOException {
 		korisnici.add(k);
 		
 		if (k instanceof Turista){
 			turisti.add((Turista) k);
-			upisiTuriste();
+			//upisiTuriste();
 		}
 		if (k instanceof Vodic){
 			vodici.add((Vodic) k);
-			upisiVodice();
+			//upisiVodice();
 		}
+		upisiPodatke();
 	}
 
 	public static void obrisiKorisnika() {};
@@ -95,7 +147,7 @@ public class Aplikacija {
 		}
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/vodici.json"), vodici);
 		
-		
+		upisiPodatke();
 	};
 
 	
@@ -312,8 +364,10 @@ public class Aplikacija {
 		if(!lozinka.equals("")){
 			Aplikacija.trenutnoAktivan.setLozinka(lozinka);
 		}
-		upisiTuriste();
-		upisiVodice();
+		//upisiTuriste();
+		//upisiVodice();
+		
+		upisiPodatke();
 		return true;
 		
 	}

@@ -20,8 +20,17 @@ public class Main {
 
 	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException {
 		
-		Aplikacija.ucitavanjeTura();
-		Aplikacija.ucitajKorisnike();
+		//ako hocete da vratite stari sistem
+		//izbrisite komentare ovde i u metodama za dodavanje, etc
+		//Aplikacija.ucitavanjeTura();
+		//Aplikacija.ucitajKorisnike();
+		//Aplikacija.podaci.setTure(Aplikacija.ture);
+		//Aplikacija.podaci.setTuristi(Aplikacija.turisti);
+		//Aplikacija.podaci.setVodici(Aplikacija.vodici);
+		
+		Aplikacija.ucitajPodatke();
+		//Aplikacija.upisiPodatke();
+		
 		
 		//test slucajevi za ture
 		/*

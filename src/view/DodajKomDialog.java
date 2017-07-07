@@ -13,6 +13,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JTextArea;
 
+import controller.Aplikacija;
 import model.Komentar;
 import model.Korisnik;
 import model.Tura;
@@ -89,6 +90,7 @@ public class DodajKomDialog extends JDialog {
 			
 		}
 		komP.azurirajPanel();
+		Aplikacija.upisiPodatke();
 		this.dispose();
 		
 	}

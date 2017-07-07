@@ -77,6 +77,7 @@ public class OtkazivanjeRezervacijaIzgled extends JPanel {
 				ulogovaniKorisnik.platiRezervaciju(trenutniIndex);
 				tabelaRezervacija.azurirajTabelu();
 				
+				
 			}});
 		
 	}
