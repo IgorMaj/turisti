@@ -79,6 +79,7 @@ public class PridruzivanjeTuriPanel extends JPanel{
 					int odabraniIndex;
 					if((odabraniIndex = tabela.getSelectedRow())==-1){
 						JOptionPane.showMessageDialog(null, "Tura nije selektovana.", "Greska", JOptionPane.ERROR_MESSAGE);
+						return;
 					}
 					Aplikacija.pridruziVodicaTuri(ture.get(odabraniIndex));
 					ture.remove(odabraniIndex);
