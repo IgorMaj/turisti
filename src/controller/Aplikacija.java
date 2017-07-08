@@ -263,4 +263,21 @@ public class Aplikacija {
 		return true;
 		
 	}
+
+	public static ArrayList<Tura> vratiTureUKojimaNeUcestvuje() {
+		ArrayList<Tura> odabraneTure = new ArrayList<Tura>();
+		for(Tura t:ture){
+			if(!(t.getVodici().contains(trenutnoAktivan)) && t.getKreatorTure() !=trenutnoAktivan){
+				odabraneTure.add(t);
+			}
+		}
+		return odabraneTure;
+	}
+
+	public static void pridruziVodicaTuri(Tura tura) {
+		tura.getVodici().add((Vodic) trenutnoAktivan);
+		((Vodic)trenutnoAktivan).getTure().add(tura);
+		upisiPodatke();
+		
+	}
 }

@@ -43,10 +43,13 @@ public class TuristaUlogovanProzor extends JFrame {
 			BrisanjeTuraPanel btp = new BrisanjeTuraPanel();
 			KreiranjeTurePanel ktp = new KreiranjeTurePanel(btp);
 			TabAktivacijaDeaktivacijaTure tadt = new TabAktivacijaDeaktivacijaTure((Vodic)ulogovani);
+			PridruzivanjeTuriPanel ptp = new PridruzivanjeTuriPanel();
 			
 			jtp.addTab("Kreiraj turu", ktp);
 			jtp.addTab("Brisanje ture", btp);
 			jtp.addTab("Aktivacija/deaktivacija ture", tadt);
+			jtp.addTab("Pridruzivanje turi", ptp);
+
 		}
 		
 		bIzlogujSe.addActionListener(new ActionListener() {
