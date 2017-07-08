@@ -42,9 +42,11 @@ public class TuristaUlogovanProzor extends JFrame {
 		if(ulogovani instanceof Vodic){
 			BrisanjeTuraPanel btp = new BrisanjeTuraPanel();
 			KreiranjeTurePanel ktp = new KreiranjeTurePanel(btp);
+			PridruzivanjeTuriPanel ptp = new PridruzivanjeTuriPanel();
 			
 			jtp.addTab("Kreiraj turu", ktp);
 			jtp.addTab("Brisanje ture", btp);
+			jtp.addTab("Pridruzivanje turi", ptp);
 		}
 		
 		bIzlogujSe.addActionListener(new ActionListener() {
