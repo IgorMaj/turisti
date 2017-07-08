@@ -164,15 +164,6 @@ public class Aplikacija {
 			}
 			korisnik.getRezervacije().removeAll(rezervacijeZaBrisanje);
 		}
-		
-		/*
-		 * test upis u novi fajl radi boljeg pregleda brisanja
-		ObjectMapper mapper = new ObjectMapper();
-		
-		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/ture.json"), ture);
-		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/vodici.json"), vodici);
-		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/turisti.json"), turisti);
-		*/
 		upisiPodatke();
 	};
 
@@ -232,34 +223,16 @@ public class Aplikacija {
 	// vraca ture koje je vodic licno kreirao (za prikaza tura koje vodic moze da brise)
 	public static ArrayList<Tura> prikazTuraKojeJeVodicKreirao() {
 
-		ArrayList<Tura> t = new ArrayList<Tura>();
+		ArrayList<Tura> tureKojeJeKreirao = new ArrayList<Tura>();
 
-		String imePrz = trenutnoAktivan.getIme() + " " + trenutnoAktivan.getPrezime();
-
-		for (int i = 0; i < ture.size(); i++) {
-			if (imePrz.equals(ture.get(i).getKreatorTure())) {
-				t.add(ture.get(i));
+		for (Tura tura : Aplikacija.ture) {
+			if(tura.getKreatorTure() == Aplikacija.trenutnoAktivan){
+				tureKojeJeKreirao.add(tura);
 			}
 		}
-		return t;
+		return tureKojeJeKreirao;
 	}
-	// vraca ture u cijem vodjenju vodic ucestvuje
-	public static ArrayList<Tura> prikazTuraKojeVodicVodi() {
-
-		ArrayList<Tura> t = new ArrayList<Tura>();
-
-		String imePrz = trenutnoAktivan.getIme() + " " + trenutnoAktivan.getPrezime();
-
-		for (int i = 0; i < ture.size(); i++) {
-			for (int j = 0; j < ture.get(i).getVodici().size(); j++) {
-				if (imePrz.equals(ture.get(i).getVodici().get(j))) {
-					t.add(ture.get(i));
-					break;
-				}
-			}
-		}
-		return t;
-	}
+	
 	
 	public static boolean IzmeniKorisnika(String ime, String prezime, String telefon,
 			String korIme, String lozinka) throws JsonGenerationException,
@@ -290,9 +263,4 @@ public class Aplikacija {
 		return true;
 		
 	}
-
-	public static void main(String[] args) throws JsonGenerationException, JsonMappingException, IOException{
-		
-	}
-	
 }

@@ -30,13 +30,15 @@ public class BrisanjeTuraPanel extends JPanel {
 	 */
 	private static final long serialVersionUID = 1L;
 	public JTable tabela;
+	public JScrollPane  s;
 	BrisanjeTuraPanel() {
 		JPanel p1 = new JPanel(new GridBagLayout());
 		GridBagConstraints g = new GridBagConstraints();
 		g.anchor = GridBagConstraints.NORTHWEST;
 		g.insets = new Insets(2, 1, 2, 1);
 
-		ArrayList<Tura> tureKojeVodi = ((Vodic)Aplikacija.trenutnoAktivan).getTure();
+		ArrayList<Tura> tureKojeVodi = Aplikacija.prikazTuraKojeJeVodicKreirao();		//Prikaz samo onih koje je kreirao
+		//ArrayList<Tura> tureKojeVodi = ((Vodic)Aplikacija.trenutnoAktivan).getTure(); //Prikaz svih koje vodi
 		if (!tureKojeVodi.isEmpty()) {
 			Object[] naziviKolona = new String[4];
 			naziviKolona[0] = "ID Ture";
@@ -59,7 +61,7 @@ public class BrisanjeTuraPanel extends JPanel {
 			}
 			tabela.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
 			tabela.getSelectionModel().addSelectionInterval(0, 0);
-			JScrollPane s = new JScrollPane(tabela);
+			s = new JScrollPane(tabela);
 			tabela.setPreferredSize(new Dimension(800, 18 * (tabela.getRowCount() + 1)));
 			s.setPreferredSize(new Dimension(800, 18 * (tabela.getRowCount() + 1)));
 			s.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_NEVER);

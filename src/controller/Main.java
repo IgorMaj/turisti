@@ -30,10 +30,20 @@ public class Main {
 		
 		Aplikacija.ucitajPodatke();
 		//Aplikacija.upisiPodatke();
+		//testniPodaci();
+		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
+		GlavniProzor gp=new GlavniProzor();
+		gp.setLocationRelativeTo(null);
+		gp.setVisible(true);
 		
+		//Za potrebe testiranja izbrisati komentar
+		//OtkazivanjeRezervacijaIzgled otkIzgled = new OtkazivanjeRezervacijaIzgled(Aplikacija.trenutnoAktivan);
+		//otkIzgled.setVisible(true);
+
+	}
+	
+	public static void testniPodaci() throws JsonGenerationException, JsonMappingException, IOException{
 		
-		//test slucajevi za ture
-		/*
 		ArrayList <Mesto> m = new ArrayList <Mesto>();
 		Mesto m1= new Mesto("Kavos",5458);
 		m.add(m1);
@@ -56,22 +66,6 @@ public class Main {
 		t1.getTermini().add(ter1);
 		t1.getTermini().add(ter2);
 		
-		
-		Aplikacija.trenutnoAktivan = Aplikacija.korisnici.get(2);
-		Aplikacija.dodajTuru(t1);
-		Aplikacija.trenutnoAktivan = Aplikacija.korisnici.get(3);
-		Aplikacija.dodajTuru(t2);
-		*/
-		//System.out.println(((Vodic)Aplikacija.korisnici.get(3)).getTure().toString());
-		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
-		GlavniProzor gp=new GlavniProzor();
-		gp.setLocationRelativeTo(null);
-		gp.setVisible(true);
-		
-		//Za potrebe testiranja izbrisati komentar
-		//OtkazivanjeRezervacijaIzgled otkIzgled = new OtkazivanjeRezervacijaIzgled(Aplikacija.trenutnoAktivan);
-		//otkIzgled.setVisible(true);
 
 	}
-
 }
