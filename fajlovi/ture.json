@@ -1,93 +1,44 @@
 [ {
-  "@id" : "2359d34a-5850-4220-a318-c07f44855d55",
-  "idTure" : "Kavos-nikad ne spava",
-  "opis" : "10 neispavanih noci",
-  "ocena" : 0,
+  "@id" : "36fe7137-97fc-4f3b-8d0e-d0986f5a9ea8",
+  "idTure" : "Zlatibor-5 dana",
+  "opis" : "odmor u prirodi",
+  "ocena" : 7,
   "minBrojMesta" : 20,
   "kreatorTure" : {
-    "@id" : "2d5c3773-6f83-4814-80dc-9d8e984621c6",
-    "korIme" : "janko",
-    "lozinka" : "janko",
-    "ime" : "Janko",
-    "prezime" : "Jankovic",
-    "telefon" : "06988765651",
-    "komentari" : [ ],
-    "rezervacije" : [ ],
-    "ture" : [ "2359d34a-5850-4220-a318-c07f44855d55" ]
-  },
-  "vodici" : [ "2d5c3773-6f83-4814-80dc-9d8e984621c6", {
-    "@id" : "41550a9e-f7f8-490f-a12d-383437efbad6",
+    "@type" : "Vodic",
+    "@id" : "91292aad-cc63-413b-bc35-855f7477280d",
     "korIme" : "milan",
     "lozinka" : "milan",
     "ime" : "Milan",
     "prezime" : "Milanovic",
-    "telefon" : "06541984561",
+    "telefon" : "0654916984",
     "komentari" : [ ],
     "rezervacije" : [ ],
-    "ture" : [ {
-      "@id" : "4fb05468-2290-420d-abd7-bdb6ab218714",
-      "idTure" : "Zlatibor-5 dana",
-      "opis" : "odmor u prirodi",
-      "ocena" : 7,
-      "minBrojMesta" : 20,
-      "kreatorTure" : "41550a9e-f7f8-490f-a12d-383437efbad6",
-      "vodici" : [ "2d5c3773-6f83-4814-80dc-9d8e984621c6", "41550a9e-f7f8-490f-a12d-383437efbad6" ],
-      "termini" : [ ],
-      "komentari" : [ ],
-      "gradovi" : [ {
-        "naziv" : "Zlatibor",
-        "ptt" : 22240
-      } ],
-      "destinacije" : [ {
-        "naziv" : "Mokra Gora",
-        "opis" : "selo",
-        "mesto" : {
-          "naziv" : "Zlatibor",
-          "ptt" : 22240
-        }
-      } ]
-    } ]
-  } ],
-  "termini" : [ {
-    "@id" : "7d75c618-5432-4247-8fab-be6af28f8c97",
-    "aktivnoStanje" : {
-      "class" : "model.Kreiran",
-      "@id" : "ecaec77d-abbd-4058-99ee-309e2312af8b",
-      "termin" : "7d75c618-5432-4247-8fab-be6af28f8c97"
-    },
-    "tura" : "2359d34a-5850-4220-a318-c07f44855d55",
-    "pocetakTure" : "30.6.2017",
-    "krajTure" : "10.7.2017",
-    "brojSlobodnihMesta" : 50,
-    "aktivan" : false,
-    "cena" : 200.0,
-    "rezervacije" : [ ]
-  }, {
-    "@id" : "0b1174bc-ab46-4087-a9ad-ef7e95d47d82",
-    "aktivnoStanje" : {
-      "class" : "model.Aktivan",
-      "@id" : "fd45693b-7b98-4f9c-8789-415e5d377476",
-      "termin" : "0b1174bc-ab46-4087-a9ad-ef7e95d47d82"
-    },
-    "tura" : "2359d34a-5850-4220-a318-c07f44855d55",
-    "pocetakTure" : "15.7.2017",
-    "krajTure" : "25.7.2017",
-    "brojSlobodnihMesta" : 50,
-    "aktivan" : true,
-    "cena" : 250.0,
-    "rezervacije" : [ ]
-  } ],
+    "ture" : [ "36fe7137-97fc-4f3b-8d0e-d0986f5a9ea8" ]
+  },
+  "vodici" : [ {
+    "@type" : "Vodic",
+    "@id" : "ef34298f-8f4f-4e4c-9e98-5781098f9a6f",
+    "korIme" : "janko",
+    "lozinka" : "janko",
+    "ime" : "Janko",
+    "prezime" : "Jankovic",
+    "telefon" : "0698874621",
+    "komentari" : [ ],
+    "rezervacije" : [ ],
+    "ture" : [ ]
+  }, "91292aad-cc63-413b-bc35-855f7477280d" ],
+  "termini" : [ ],
   "komentari" : [ ],
   "gradovi" : [ {
-    "naziv" : "Kavos",
-    "ptt" : 5458
+    "@id" : "dc965d7f-a125-4c32-b202-b940b98c2311",
+    "naziv" : "Zlatibor",
+    "ptt" : 22240
   } ],
   "destinacije" : [ {
-    "naziv" : "Srpska kuca",
-    "opis" : "muzej",
-    "mesto" : {
-      "naziv" : "Krf",
-      "ptt" : 5458
-    }
+    "@id" : "e1c4feba-9ba0-4041-a742-66e6f6bca3b3",
+    "naziv" : "Mokra Gora",
+    "opis" : "selo",
+    "mesto" : "dc965d7f-a125-4c32-b202-b940b98c2311"
   } ]
-}, "4fb05468-2290-420d-abd7-bdb6ab218714" ]
+} ]

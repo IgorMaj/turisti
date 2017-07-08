@@ -61,9 +61,7 @@ public class Main {
 		Aplikacija.dodajTuru(t1);
 		Aplikacija.trenutnoAktivan = Aplikacija.korisnici.get(3);
 		Aplikacija.dodajTuru(t2);
-		
 		*/
-		
 		//System.out.println(((Vodic)Aplikacija.korisnici.get(3)).getTure().toString());
 		//Aplikacija.trenutnoAktivan = new Turista("pero", "123", "petar", "petrovic","4810", new ArrayList<Komentar>(),new ArrayList<Rezervacija>());
 		GlavniProzor gp=new GlavniProzor();

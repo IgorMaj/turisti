@@ -129,24 +129,8 @@ public class Aplikacija {
 	}
 	
 	public static void dodajTuru(Tura t) throws JsonGenerationException, JsonMappingException, IOException {
-
 		ture.add(t);
-
-		ArrayList<Tura> tur = ((Vodic) trenutnoAktivan).getTure();
-		tur.add(t);
-		((Vodic) trenutnoAktivan).setTure(tur);
-
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/ture.json"), ture);
-		
-		ArrayList<Vodic> vodici = new ArrayList<Vodic>();
-		for (Korisnik k : Aplikacija.korisnici) {
-			if(k instanceof Vodic){
-				vodici.add((Vodic)k);
-			}
-		}
-		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/vodici.json"), vodici);
-		
+		((Vodic)trenutnoAktivan).getTure().add(t);
 		upisiPodatke();
 	};
 
@@ -165,96 +149,31 @@ public class Aplikacija {
 	
 	public static void obrisiTuru(Tura t) throws JsonGenerationException, JsonMappingException, IOException {
 		ture.remove(t);
-
+		
+		for (Vodic vodic : vodici) {
+			vodic.getTure().remove(t);
+		}
+		
+		ArrayList<Rezervacija> rezervacijeZaBrisanje;
+		for (Korisnik korisnik : korisnici) {
+			rezervacijeZaBrisanje = new ArrayList<Rezervacija>();
+			for (Rezervacija rezervacija : korisnik.getRezervacije()) {
+				if(rezervacija.getTermin().getTura() == t){
+					rezervacijeZaBrisanje.add(rezervacija);
+				}
+			}
+			korisnik.getRezervacije().removeAll(rezervacijeZaBrisanje);
+		}
+		
+		/*
+		 * test upis u novi fajl radi boljeg pregleda brisanja
 		ObjectMapper mapper = new ObjectMapper();
-		
-
-		ArrayList<Tura> tur = new ArrayList<Tura>();
-		for (int i = 0; i < t.getVodici().size(); i++) {
-			for (int j = 0; j < korisnici.size(); j++) {
-				if (korisnici.get(j) instanceof Vodic) {
-					String imePrezime = korisnici.get(j).getIme() + " " + korisnici.get(j).getPrezime();
-					String vodic = t.getVodici().get(i).getIme()+" "+t.getVodici().get(i).getPrezime();
-					if (imePrezime.equals(vodic)) {
-						tur = ((Vodic) korisnici.get(j)).getTure();
-						for (Tura tura : tur) {
-							if(tura.getIdTure().equals(t.getIdTure())){
-								tur.remove(tura);
-								break;
-							}
-						}
-						((Vodic) korisnici.get(j)).setTure(tur);
-					}
-				}
-			}
-		}
-		ArrayList<Vodic> vodici = new ArrayList<Vodic>();
-		ArrayList<Turista> turisti = new ArrayList<Turista>();
-		
-		
-		for (Korisnik korisnik : Aplikacija.korisnici) {
-			ArrayList<Rezervacija> korRezervacija = korisnik.getRezervacije();
-			for (Rezervacija rezervacija : korRezervacija) {
-				if(t.getIdTure().equals(rezervacija.getTermin().getTura().getIdTure())){
-					korisnik.getRezervacije().remove(rezervacija);
-				}
-			}
-		}
-		
-		for (Korisnik k : Aplikacija.korisnici) {
-			if(k instanceof Vodic){
-				vodici.add((Vodic)k);
-			}
-			if(k instanceof Turista){
-				turisti.add((Turista)k);
-			}
-		}
-		
-		for (Tura tura : Aplikacija.ture) {
-			ArrayList<Tura> tureKreator = tura.getKreatorTure().getTure();
-			for(Tura turaK : tureKreator){
-				if(turaK.getIdTure().equals(t.getIdTure())){
-					tureKreator.remove(turaK);
-				}
-			}
-			ArrayList<Vodic> vodiciTure = tura.getVodici();
-			for (Vodic vodic : vodiciTure) {
-				for (Tura tureVodici : vodic.getTure()) {
-					if(tureVodici.getIdTure().equals(t.getIdTure())){
-						vodic.getTure().remove(tureVodici);
-						break;
-					}
-				}
-			}
-		}
-		
-		//brisanje rezervazija za vodice u turama kojima je trenutno tura obrisana
-		for (Tura tura : Aplikacija.ture) {
-			ArrayList<Rezervacija> kreatorRezervacije = tura.getKreatorTure().getRezervacije();
-			for (Rezervacija rezervacija : kreatorRezervacije) {
-				if(t.getIdTure().equals(rezervacija.getTermin().getTura().getIdTure())){
-					tura.getKreatorTure().getRezervacije().remove(rezervacija);
-				}
-			}
-			ArrayList<Vodic> vodiciTure = tura.getVodici();
-			for (Vodic vodic : vodiciTure) {
-				ArrayList<Rezervacija> vodiciRezervacije = vodic.getRezervacije();
-				for (Rezervacija rezervacija : vodiciRezervacije) {
-					if(t.getIdTure().equals(rezervacija.getTermin().getTura().getIdTure())){
-						vodic.getRezervacije().remove(rezervacija);
-					}
-				}
-			}
-		}
-		
-		
-		
-		
-		
 		
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/ture.json"), ture);
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/vodici.json"), vodici);
 		mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/turisti.json"), turisti);
+		*/
+		upisiPodatke();
 	};
 
 	// ucitavanje tura u kolekciju(ture) aplikacije

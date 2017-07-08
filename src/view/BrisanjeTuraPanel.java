@@ -91,16 +91,16 @@ public class BrisanjeTuraPanel extends JPanel {
 							String id = (String) dtm.getValueAt(tabela.getSelectedRow(), 0);
 							for (Tura t : Aplikacija.ture) {
 								if (t.getIdTure().equals(id)) {
-									Aplikacija.ture.remove(t);
-									
 									try {
 										Aplikacija.obrisiTuru(t);
 									} catch (IOException e) {
 										e.printStackTrace();
 									}
+									
 									dtm.removeRow(tabela.getSelectedRow());
 									tabela.setPreferredSize(new Dimension(800, 18 * (tabela.getRowCount() + 1)));
 									s.setPreferredSize(new Dimension(800, 18 * (tabela.getRowCount() + 1)));
+									
 									if (tabela.getRowCount() > 0) {
 										tabela.getSelectionModel().addSelectionInterval(0, 0);
 									}

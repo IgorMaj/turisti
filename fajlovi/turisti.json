@@ -1,19 +1,19 @@
 [ {
-  "@id" : "9c4c5a89-dd25-4f55-8887-ce821d90c602",
+  "@id" : "b43c8a12-2732-45fd-8771-b8e751a3c31b",
   "korIme" : "ognjen",
   "lozinka" : "ognjen",
   "ime" : "Ognjen",
   "prezime" : "Ognjenovic",
-  "telefon" : "0651984981",
+  "telefon" : "0656874164",
   "komentari" : [ ],
   "rezervacije" : [ ]
 }, {
-  "@id" : "ec9b2896-5f4b-4e9b-b2bf-2e50769c2f1d",
+  "@id" : "148e672e-cb18-4908-afb4-cf09ff8f6c15",
   "korIme" : "ana",
   "lozinka" : "ana",
   "ime" : "Ana",
   "prezime" : "Anic",
-  "telefon" : "0811894",
+  "telefon" : "06998746519",
   "komentari" : [ ],
   "rezervacije" : [ ]
 } ]
