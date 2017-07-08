@@ -18,7 +18,9 @@ import javax.swing.JTable;
 import javax.swing.ListSelectionModel;
 
 import controller.Aplikacija;
+import model.Aktivan;
 import model.Korisnik;
+import model.Kreiran;
 import model.Tura;
 import model.Vodic;
 
@@ -41,6 +43,7 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 		kolone.add("minimalni broj mesta");
 		kolone.add("pocetak ture");
 		kolone.add("zavrsetak ture");
+		kolone.add("stanje");
 		
 		ArrayList<Tura> tureKorisnika = v.getTure();
 		
@@ -48,12 +51,21 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 		
 		for (int i = 0;i<tureKorisnika.size();i++){
 			for (int termini = 0; termini < tureKorisnika.get(i).getTermini().size(); termini++) {
-				Vector<String> redTabele = new Vector<String>();
-				redTabele.add(tureKorisnika.get(i).getIdTure());
-				redTabele.add(""+tureKorisnika.get(i).getMinBrojMesta());
-				redTabele.add(""+tureKorisnika.get(i).getTermini().get(termini).getPocetakTure());
-				redTabele.add(""+tureKorisnika.get(i).getTermini().get(termini).getKrajTure());
-				podaci.add(redTabele);
+				if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Aktivan ||
+						tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran){
+					Vector<String> redTabele = new Vector<String>();
+					redTabele.add(tureKorisnika.get(i).getIdTure());
+					redTabele.add(""+tureKorisnika.get(i).getMinBrojMesta());
+					redTabele.add(""+tureKorisnika.get(i).getTermini().get(termini).getPocetakTure());
+					redTabele.add(""+tureKorisnika.get(i).getTermini().get(termini).getKrajTure());
+					if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Aktivan ){
+						redTabele.add("aktivan");
+					}
+					if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran){
+						redTabele.addElement("neaktivan");
+					}
+					podaci.add(redTabele);
+				}	
 			}
 		}
 		this.setLayout(new GridLayout(2,0));
@@ -100,30 +112,23 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 		gornjiPanel.add(deaktivirajTuru, gbc);
 		
 		this.add(gornjiPanel);
-		/*odaberi_turu.addActionListener(new ActionListener() {
+		
+		aktivirajTuru.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				String idTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 0);
 				
-				for (int i = 0;i<ture.size();i++){
-					if (ture.get(i).getIdTure().equals(idTure.trim())){
-						TuraProzor tp = new TuraProzor(ture.get(i), Aplikacija.trenutnoAktivan);
-						tp.show();
-						break;
-					}
-				}
 			}
 		});
 		
-		deselektuj_ture.addActionListener(new ActionListener() {
+		deaktivirajTuru.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				tabela.getSelectionModel().clearSelection();
+				
 				
 			}
-		});*/
+		});
 		
 		
 	}
