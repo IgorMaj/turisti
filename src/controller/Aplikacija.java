@@ -25,6 +25,7 @@ public class Aplikacija {
 	public static ArrayList<Tura> ture = new ArrayList<Tura>();
 	public static ArrayList<Turista> turisti = new ArrayList<Turista>();
 	public static ArrayList<Vodic> vodici = new ArrayList<Vodic>();
+	public static String putanjaDoFajla = "fajlovi/podaci.json";
 	
 	//sadrzi reference na sve - kontejner
 	public static SadrzalacPodataka podaci = new SadrzalacPodataka(turisti,vodici,ture);
@@ -36,7 +37,7 @@ public class Aplikacija {
 		ObjectMapper mapper = new ObjectMapper();
 		
 		try {
-			podaci = mapper.readValue(new File("fajlovi/podaci.json"),new TypeReference<SadrzalacPodataka>(){});
+			podaci = mapper.readValue(new File(putanjaDoFajla),new TypeReference<SadrzalacPodataka>(){});
 		} catch (JsonParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
@@ -65,7 +66,7 @@ public class Aplikacija {
 	public static void upisiPodatke(){
 		ObjectMapper mapper = new ObjectMapper();
 		try {
-			mapper.writer().withDefaultPrettyPrinter().writeValue(new File("Fajlovi/podaci.json"), podaci);
+			mapper.writer().withDefaultPrettyPrinter().writeValue(new File(putanjaDoFajla), podaci);
 		} catch (JsonGenerationException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();

@@ -1,0 +1,16 @@
+{
+  "@id" : "75835c9f-c44a-4004-a2d1-3336fe5ee32b",
+  "turisti" : [ {
+    "@type" : "Turista",
+    "@id" : "8774a769-29b4-48ea-bc12-c19aecb9b41b",
+    "korIme" : "ognjen",
+    "lozinka" : "ognjen",
+    "ime" : "Ognjen",
+    "prezime" : "Ognjenovic",
+    "telefon" : "0656874164",
+    "komentari" : [ ],
+    "rezervacije" : [ ]
+  }],
+  "vodici" : [ ],
+  "ture" : [ ]
+}
