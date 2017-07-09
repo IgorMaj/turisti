@@ -1,4 +1,4 @@
-package slaven;
+package marko;
 
 import static org.junit.Assert.assertEquals;
 
