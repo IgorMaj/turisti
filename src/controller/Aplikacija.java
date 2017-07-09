@@ -4,18 +4,24 @@ import java.io.File;
 import java.io.IOException;
 import java.util.ArrayList;
 
+import javax.swing.JOptionPane;
+
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.core.JsonParseException;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.JsonMappingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
+import model.Aktivan;
 import model.Korisnik;
+import model.Kreiran;
 import model.Rezervacija;
 import model.SadrzalacPodataka;
+import model.Termin;
 import model.Tura;
 import model.Turista;
 import model.Vodic;
+import view.TabAktivacijaDeaktivacijaTure;
 
 public class Aplikacija {
 
@@ -228,5 +234,31 @@ public class Aplikacija {
 		((Vodic) trenutnoAktivan).getTure().add(tura);
 		upisiPodatke();
 
+	}
+	
+	public static boolean aktivirajTuru(String idTure, String pocetakTure, String zavrsetakTure, String statusTure){
+		
+		Vodic v = null;
+		
+		if(Aplikacija.trenutnoAktivan instanceof Vodic){
+			v = (Vodic)Aplikacija.trenutnoAktivan;
+		}
+		for(Tura t : v.getTure()){
+			if(t.getIdTure().equals(idTure)){
+				for(Termin ter : t.getTermini()){
+					if(ter.getPocetakTure().equals(pocetakTure) && ter.getKrajTure().equals(zavrsetakTure)){
+						if(statusTure.equals("neaktivan") && ter.getAktivnoStanje() instanceof Kreiran){
+							ter.setAktivnoStanje(new Aktivan());
+							Aplikacija.upisiPodatke();
+							return true;
+						}
+						else{
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
 	}
 }
