@@ -1,4 +1,4 @@
-package testovi;
+package igor;
 
 import static org.junit.Assert.*;
 import org.junit.Test;
@@ -15,7 +15,7 @@ public class UcitavanjeTest {
 
 	@Test
 	public void test1() {
-		ucitaj("src/testovi/test1.json");
+		ucitaj("testovi/igor/test1.json");
 		assertFalse(Aplikacija.ture.size()==0);
 		assertFalse(Aplikacija.turisti.size()==0);
 		assertFalse(Aplikacija.vodici.size()==0);
@@ -23,7 +23,7 @@ public class UcitavanjeTest {
 	
 	@Test
 	public void test2() {
-		ucitaj("src/testovi/test2.json");
+		ucitaj("testovi/igor/test2.json");
 		assertTrue(Aplikacija.ture.size()==0);
 		assertTrue(Aplikacija.turisti.size()==0);
 		assertTrue(Aplikacija.vodici.size()==0);
@@ -31,7 +31,7 @@ public class UcitavanjeTest {
 	
 	@Test
 	public void test3() {
-		ucitaj("src/testovi/test3.json");
+		ucitaj("testovi/igor/test3.json");
 		assertTrue(Aplikacija.ture.size()==0);
 		assertTrue(Aplikacija.turisti.size()==1);
 		assertTrue(Aplikacija.vodici.size()==0);

@@ -1,4 +1,4 @@
-package testovi;
+package igor;
 
 import static org.junit.Assert.*;
 
