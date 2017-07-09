@@ -1,6 +1,6 @@
 package testovi;
 
-import static org.junit.Assert.*;
+import static org.junit.Assert.assertEquals;
 
 import java.io.IOException;
 import java.util.ArrayList;
@@ -10,10 +10,10 @@ import org.junit.Test;
 import com.fasterxml.jackson.core.JsonGenerationException;
 import com.fasterxml.jackson.databind.JsonMappingException;
 
+import controller.Aplikacija;
 import model.Komentar;
 import model.Rezervacija;
 import model.Turista;
-import controller.Aplikacija;
 
 public class IzmenaProfilaKorisnikaTest {
 
