@@ -252,7 +252,7 @@ public class Aplikacija {
 							Aplikacija.upisiPodatke();
 							return true;
 						}
-						else{
+						else if (statusTure.equals("aktivan") && ter.getAktivnoStanje() instanceof Aktivan){
 							return false;
 						}
 					}
