@@ -113,12 +113,5 @@ public class ProzorPrikazTura extends JPanel {
 				
 			}
 		});
-		
-		
 	}
-	public static void main(String[] args) throws JsonParseException, JsonMappingException, IOException {
-		Aplikacija.ucitavanjeTura();
-		new ProzorPrikazTura(Aplikacija.ture);
-	}
-
 }
