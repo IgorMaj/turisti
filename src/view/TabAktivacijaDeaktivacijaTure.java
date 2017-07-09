@@ -12,6 +12,7 @@ import java.util.Vector;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -21,6 +22,7 @@ import controller.Aplikacija;
 import model.Aktivan;
 import model.Korisnik;
 import model.Kreiran;
+import model.Termin;
 import model.Tura;
 import model.Vodic;
 
@@ -117,7 +119,30 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String idTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 0);
+				String pocetakTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 2);
+				String zavrsetakTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 3);
+				String statusTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 4);
 				
+				if(Aplikacija.trenutnoAktivan instanceof Vodic){
+					Vodic v = (Vodic)Aplikacija.trenutnoAktivan;
+				}
+				for(Tura t : v.getTure()){
+					if(t.getIdTure().equals(idTure)){
+						for(Termin ter : t.getTermini()){
+							if(ter.getPocetakTure().equals(pocetakTure) && ter.getKrajTure().equals(zavrsetakTure)){
+								if(statusTure.equals("neaktivan") && ter.getAktivnoStanje() instanceof Kreiran){
+									ter.setAktivnoStanje(new Aktivan());
+									tabela.setValueAt("aktivan", tabela.getSelectedRow(), 4);
+									Aplikacija.upisiPodatke();
+								}
+								else if(statusTure.equals("aktivan") && ter.getAktivnoStanje() instanceof Aktivan){
+									JOptionPane.showMessageDialog(TabAktivacijaDeaktivacijaTure.this,"Ne moze se aktivirati vec aktivna tura!", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+								}
+							}
+						}
+					}
+				}
 			}
 		});
 		
