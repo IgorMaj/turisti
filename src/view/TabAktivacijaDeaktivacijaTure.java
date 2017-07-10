@@ -1,6 +1,5 @@
 package view;
 
-import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
@@ -20,9 +19,8 @@ import javax.swing.ListSelectionModel;
 
 import controller.Aplikacija;
 import model.Aktivan;
-import model.Korisnik;
 import model.Kreiran;
-import model.Termin;
+import model.Otkazan;
 import model.Tura;
 import model.Vodic;
 
@@ -54,7 +52,7 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 		for (int i = 0;i<tureKorisnika.size();i++){
 			for (int termini = 0; termini < tureKorisnika.get(i).getTermini().size(); termini++) {
 				if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Aktivan ||
-						tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran){
+						tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran || tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Otkazan){
 					Vector<String> redTabele = new Vector<String>();
 					redTabele.add(tureKorisnika.get(i).getIdTure());
 					redTabele.add(""+tureKorisnika.get(i).getMinBrojMesta());
@@ -63,7 +61,7 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 					if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Aktivan ){
 						redTabele.add("aktivan");
 					}
-					if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran){
+					if(tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Kreiran || tureKorisnika.get(i).getTermini().get(termini).getAktivnoStanje() instanceof Otkazan){
 						redTabele.addElement("neaktivan");
 					}
 					podaci.add(redTabele);
@@ -139,6 +137,19 @@ public class TabAktivacijaDeaktivacijaTure extends JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				String idTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 0);
+				String pocetakTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 2);
+				String zavrsetakTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 3);
+				String statusTure = (String) tabela.getModel().getValueAt(tabela.getSelectedRow(), 4);
+			
+				boolean deaktivirana = Aplikacija.deaktivirajTuru(idTure,pocetakTure, zavrsetakTure, statusTure);
+				if(deaktivirana){
+					tabela.setValueAt("neaktivan", tabela.getSelectedRow(), 4);
+				}
+				else if(!deaktivirana){
+					JOptionPane.showMessageDialog(TabAktivacijaDeaktivacijaTure.this,
+							"Ne moze se deaktivirati tura koja je vec deaktivirana!", "Upozorenje", JOptionPane.WARNING_MESSAGE);
+				}
 				
 				
 			}

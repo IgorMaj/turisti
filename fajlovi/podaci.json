@@ -1,8 +1,8 @@
 {
-  "@id" : "de09b8cc-6ced-4aa4-b529-fcb371a4e6ed",
+  "@id" : "95571b4c-0137-46c4-bb2e-4b55d5fad099",
   "turisti" : [ {
     "@type" : "Turista",
-    "@id" : "f2c77d68-ae8c-4b47-9780-d017443b395e",
+    "@id" : "3a86cbec-4a05-47d5-ac15-27ce159401a5",
     "korIme" : "ognjen",
     "lozinka" : "ognjen",
     "ime" : "Ognjen",
@@ -12,7 +12,7 @@
     "rezervacije" : [ ]
   }, {
     "@type" : "Turista",
-    "@id" : "8386d079-6086-4d21-b4fa-18d0a8c6e441",
+    "@id" : "2f2f668c-be69-4019-ac18-ac82dffc8ee0",
     "korIme" : "ana",
     "lozinka" : "ana",
     "ime" : "Ana",
@@ -23,7 +23,7 @@
   } ],
   "vodici" : [ {
     "@type" : "Vodic",
-    "@id" : "25ede98a-d105-49b3-90a3-3adf410ee74d",
+    "@id" : "a5e2fd49-7745-4c37-8d01-5ed32b8a30bf",
     "korIme" : "janko",
     "lozinka" : "janko",
     "ime" : "Janko",
@@ -32,15 +32,15 @@
     "komentari" : [ ],
     "rezervacije" : [ ],
     "ture" : [ {
-      "@id" : "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246",
+      "@id" : "e1adae9d-8a78-4e93-98be-85e4d50d5269",
       "idTure" : "Kavos-nikad ne spava",
       "opis" : "10 neispavanih noci",
       "ocena" : 0,
       "minBrojMesta" : 20,
-      "kreatorTure" : "25ede98a-d105-49b3-90a3-3adf410ee74d",
-      "vodici" : [ "25ede98a-d105-49b3-90a3-3adf410ee74d", {
+      "kreatorTure" : "a5e2fd49-7745-4c37-8d01-5ed32b8a30bf",
+      "vodici" : [ "a5e2fd49-7745-4c37-8d01-5ed32b8a30bf", {
         "@type" : "Vodic",
-        "@id" : "7307db01-4c3e-4b08-932a-f7fb34aa3a46",
+        "@id" : "a65a95c5-48bc-4ebb-8512-7680b3f10576",
         "korIme" : "milan",
         "lozinka" : "milan",
         "ime" : "Milan",
@@ -49,30 +49,30 @@
         "komentari" : [ ],
         "rezervacije" : [ ],
         "ture" : [ {
-          "@id" : "57a915ad-c52c-454c-9009-5ab6ed6acede",
+          "@id" : "3ee61772-644d-4f6c-824e-4c5ae160b472",
           "idTure" : "Zlatibor-5 dana",
           "opis" : "odmor u prirodi",
           "ocena" : 7,
           "minBrojMesta" : 20,
-          "kreatorTure" : "7307db01-4c3e-4b08-932a-f7fb34aa3a46",
-          "vodici" : [ "25ede98a-d105-49b3-90a3-3adf410ee74d", "7307db01-4c3e-4b08-932a-f7fb34aa3a46" ],
+          "kreatorTure" : "a65a95c5-48bc-4ebb-8512-7680b3f10576",
+          "vodici" : [ "a5e2fd49-7745-4c37-8d01-5ed32b8a30bf", "a65a95c5-48bc-4ebb-8512-7680b3f10576" ],
           "termini" : [ ],
           "komentari" : [ ],
           "gradovi" : [ {
-            "@id" : "874f8c0c-349d-40ca-afba-88f21afc720f",
+            "@id" : "dbf8d4c7-1e76-4c78-88af-9747c73c45f5",
             "naziv" : "Zlatibor",
             "ptt" : 22240
           } ],
           "destinacije" : [ {
-            "@id" : "643d15dd-a1d3-4e5d-b14f-92603e5ae4c5",
+            "@id" : "d6de2fea-98a2-44f1-81c0-2eec600ef09d",
             "naziv" : "Mokra Gora",
             "opis" : "selo",
-            "mesto" : "874f8c0c-349d-40ca-afba-88f21afc720f"
+            "mesto" : "dbf8d4c7-1e76-4c78-88af-9747c73c45f5"
           } ]
-        }, "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246" ]
+        }, "e1adae9d-8a78-4e93-98be-85e4d50d5269" ]
       }, {
         "@type" : "Vodic",
-        "@id" : "9563ac39-396b-43b0-b302-a738ff039c0e",
+        "@id" : "01604bc9-7e8d-4c03-8488-e712ff830ef8",
         "korIme" : "igor",
         "lozinka" : "igor",
         "ime" : "Igor",
@@ -80,16 +80,16 @@
         "telefon" : "011561565",
         "komentari" : [ ],
         "rezervacije" : [ ],
-        "ture" : [ "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246" ]
+        "ture" : [ "e1adae9d-8a78-4e93-98be-85e4d50d5269" ]
       } ],
       "termini" : [ {
-        "@id" : "6b497bd8-57b5-48b5-8210-5da0cddcf1c7",
+        "@id" : "7303f7a4-8d1e-45a2-9d19-8270609ef959",
         "aktivnoStanje" : {
-          "class" : "model.Aktivan",
-          "@id" : "34115a79-1538-4515-9d9e-a00f47f38ddb",
+          "class" : "model.Otkazan",
+          "@id" : "a11ef021-4987-41ad-8e6a-f99013342e2e",
           "termin" : null
         },
-        "tura" : "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246",
+        "tura" : "e1adae9d-8a78-4e93-98be-85e4d50d5269",
         "pocetakTure" : "30.6.2017",
         "krajTure" : "10.7.2017",
         "brojSlobodnihMesta" : 50,
@@ -97,13 +97,13 @@
         "cena" : 200.0,
         "rezervacije" : [ ]
       }, {
-        "@id" : "87d2516b-ee95-417a-bd78-f116dc805acb",
+        "@id" : "12802422-397e-4203-8138-6493f4d838ec",
         "aktivnoStanje" : {
           "class" : "model.Aktivan",
-          "@id" : "1dfbd32a-9b94-423f-9b0c-b257cd7f41bc",
-          "termin" : "87d2516b-ee95-417a-bd78-f116dc805acb"
+          "@id" : "0a86fc77-3aa9-40f6-9731-99e2c8651482",
+          "termin" : "12802422-397e-4203-8138-6493f4d838ec"
         },
-        "tura" : "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246",
+        "tura" : "e1adae9d-8a78-4e93-98be-85e4d50d5269",
         "pocetakTure" : "15.7.2017",
         "krajTure" : "25.7.2017",
         "brojSlobodnihMesta" : 50,
@@ -113,21 +113,21 @@
       } ],
       "komentari" : [ ],
       "gradovi" : [ {
-        "@id" : "3e489390-76ba-49d6-a8a8-85c754dadcb8",
+        "@id" : "07913d09-edf7-470b-8197-7fb1d11a114b",
         "naziv" : "Kavos",
         "ptt" : 5458
       } ],
       "destinacije" : [ {
-        "@id" : "31424c78-e353-4060-affc-ab786bd94d38",
+        "@id" : "238747c1-b51b-4b54-9bc3-9bebfc67f3f6",
         "naziv" : "Srpska kuca",
         "opis" : "muzej",
         "mesto" : {
-          "@id" : "ef781e74-3467-4863-8768-4fad4c79a768",
+          "@id" : "125c2de0-febf-4e1a-9901-a4c3f9e0aeca",
           "naziv" : "Krf",
           "ptt" : 5458
         }
       } ]
-    }, "57a915ad-c52c-454c-9009-5ab6ed6acede" ]
-  }, "7307db01-4c3e-4b08-932a-f7fb34aa3a46", "9563ac39-396b-43b0-b302-a738ff039c0e" ],
-  "ture" : [ "65a3a8ff-dc8e-48b8-bb63-877d1b2ab246", "57a915ad-c52c-454c-9009-5ab6ed6acede" ]
+    }, "3ee61772-644d-4f6c-824e-4c5ae160b472" ]
+  }, "a65a95c5-48bc-4ebb-8512-7680b3f10576", "01604bc9-7e8d-4c03-8488-e712ff830ef8" ],
+  "ture" : [ "e1adae9d-8a78-4e93-98be-85e4d50d5269", "3ee61772-644d-4f6c-824e-4c5ae160b472" ]
 }

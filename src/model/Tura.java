@@ -10,8 +10,6 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 @JsonAutoDetect(fieldVisibility= Visibility.ANY)
 @JsonIdentityInfo(generator=ObjectIdGenerators.UUIDGenerator.class, property="@id")
 public class Tura {
-	
-	
 	private String idTure;
 	private String opis;
 	private int ocena;

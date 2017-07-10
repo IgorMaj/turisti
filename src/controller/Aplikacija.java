@@ -15,6 +15,7 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import model.Aktivan;
 import model.Korisnik;
 import model.Kreiran;
+import model.Otkazan;
 import model.Rezervacija;
 import model.SadrzalacPodataka;
 import model.Termin;
@@ -261,4 +262,34 @@ public class Aplikacija {
 		}
 		return true;
 	}
+	
+	
+	
+	public static boolean deaktivirajTuru(String idTure, String pocetakTure, String zavrsetakTure, String statusTure){
+		Vodic v = null;
+		
+		if(Aplikacija.trenutnoAktivan instanceof Vodic){
+			v = (Vodic)Aplikacija.trenutnoAktivan;
+		}
+		for(Tura t : v.getTure()){
+			if(t.getIdTure().equals(idTure)){
+				for(Termin ter : t.getTermini()){
+					if(ter.getPocetakTure().equals(pocetakTure) && ter.getKrajTure().equals(zavrsetakTure)){						
+						if(statusTure.equals("aktivan") && ter.getAktivnoStanje() instanceof Aktivan){
+							ter.setAktivnoStanje(new Otkazan());
+							Aplikacija.upisiPodatke();
+							return true;
+						}
+						else if (statusTure.equals("neaktivan") && ter.getAktivnoStanje() instanceof Otkazan){
+							return false;
+						}
+					}
+				}
+			}
+		}
+		return true;
+	}
+	
+	
+	
 }
