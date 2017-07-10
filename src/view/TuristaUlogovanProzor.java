@@ -38,6 +38,9 @@ public class TuristaUlogovanProzor extends JFrame {
 		TabProfil tp = new TabProfil(ulogovani);
 		jtp.addTab("Profil", tp);
 		
+		PretragaIRezervacijaTure pirt = new PretragaIRezervacijaTure();
+		jtp.addTab("Pretraga, rezervacija i ocena", pirt);
+		
 		
 		if(ulogovani instanceof Vodic){
 			BrisanjeTuraPanel btp = new BrisanjeTuraPanel();
